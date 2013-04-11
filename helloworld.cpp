@@ -1,5 +1,7 @@
 #include <iostream>
 
+using namespace std;
+
 int main() {
-  std::cout << "Hello CG!!" << std::endl;
+  cout << "Hello CG!!" << endl;
 }
