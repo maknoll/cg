@@ -11,6 +11,8 @@
 		5B80330C17170E6200638E8C /* hellogl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B8032EF17170E1100638E8C /* hellogl.cpp */; };
 		5B80330E17170E7600638E8C /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B80330D17170E7600638E8C /* OpenGL.framework */; };
 		5B80331017170E7C00638E8C /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B80330F17170E7C00638E8C /* GLUT.framework */; };
+		5BF59ABD171845A000682E2C /* MemoryFun.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BF59ABA171845A000682E2C /* MemoryFun.cpp */; };
+		5BF59ABE171845A000682E2C /* Timer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BF59ABB171845A000682E2C /* Timer.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -32,6 +34,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
+		5BF59AAE1718454B00682E2C /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +52,10 @@
 		5B80330317170E5400638E8C /* hellogl */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = hellogl; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B80330D17170E7600638E8C /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		5B80330F17170E7C00638E8C /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
+		5BF59AB01718454B00682E2C /* memoryfun */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = memoryfun; sourceTree = BUILT_PRODUCTS_DIR; };
+		5BF59ABA171845A000682E2C /* MemoryFun.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MemoryFun.cpp; sourceTree = "<group>"; };
+		5BF59ABB171845A000682E2C /* Timer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Timer.cpp; sourceTree = "<group>"; };
+		5BF59ABC171845A000682E2C /* Timer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Timer.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,12 +75,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5BF59AAD1718454B00682E2C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		5B8032D617170DD600638E8C = {
 			isa = PBXGroup;
 			children = (
+				5BF59AB91718458000682E2C /* memoryfun */,
 				5B80330F17170E7C00638E8C /* GLUT.framework */,
 				5B80330D17170E7600638E8C /* OpenGL.framework */,
 				5B8032EE17170DFC00638E8C /* hellogl */,
@@ -79,6 +102,7 @@
 			children = (
 				5B8032F517170E2600638E8C /* helloworld */,
 				5B80330317170E5400638E8C /* hellogl */,
+				5BF59AB01718454B00682E2C /* memoryfun */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -97,6 +121,16 @@
 				5B8032EF17170E1100638E8C /* hellogl.cpp */,
 			);
 			name = hellogl;
+			sourceTree = "<group>";
+		};
+		5BF59AB91718458000682E2C /* memoryfun */ = {
+			isa = PBXGroup;
+			children = (
+				5BF59ABA171845A000682E2C /* MemoryFun.cpp */,
+				5BF59ABB171845A000682E2C /* Timer.cpp */,
+				5BF59ABC171845A000682E2C /* Timer.hpp */,
+			);
+			name = memoryfun;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,6 +170,23 @@
 			productReference = 5B80330317170E5400638E8C /* hellogl */;
 			productType = "com.apple.product-type.tool";
 		};
+		5BF59AAF1718454B00682E2C /* memoryfun */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5BF59AB81718454B00682E2C /* Build configuration list for PBXNativeTarget "memoryfun" */;
+			buildPhases = (
+				5BF59AAC1718454B00682E2C /* Sources */,
+				5BF59AAD1718454B00682E2C /* Frameworks */,
+				5BF59AAE1718454B00682E2C /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = memoryfun;
+			productName = memoryfun;
+			productReference = 5BF59AB01718454B00682E2C /* memoryfun */;
+			productType = "com.apple.product-type.tool";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -159,6 +210,7 @@
 			targets = (
 				5B8032F417170E2600638E8C /* helloworld */,
 				5B80330217170E5400638E8C /* hellogl */,
+				5BF59AAF1718454B00682E2C /* memoryfun */,
 			);
 		};
 /* End PBXProject section */
@@ -177,6 +229,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B80330C17170E6200638E8C /* hellogl.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5BF59AAC1718454B00682E2C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5BF59ABD171845A000682E2C /* MemoryFun.cpp in Sources */,
+				5BF59ABE171845A000682E2C /* Timer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,6 +331,20 @@
 			};
 			name = Release;
 		};
+		5BF59AB61718454B00682E2C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		5BF59AB71718454B00682E2C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -289,12 +364,22 @@
 				5B8032FD17170E2600638E8C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5B80330917170E5400638E8C /* Build configuration list for PBXNativeTarget "hellogl" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5B80330A17170E5400638E8C /* Debug */,
 				5B80330B17170E5400638E8C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5BF59AB81718454B00682E2C /* Build configuration list for PBXNativeTarget "memoryfun" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5BF59AB61718454B00682E2C /* Debug */,
+				5BF59AB71718454B00682E2C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
