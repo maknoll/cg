@@ -3,7 +3,8 @@
 \usepackage{amssymb}
 \usepackage[ngerman]{babel}
 \title{Computergrafik}
-\author{Lisa Kassebaum, Andreas Pfohl, Martin Knoll}
+\author{Lisa Kassebaum - 199856 \\ Andreas Pfohl \\ Martin Knoll - 193321 }
+\date{}
 \begin{document}
 \maketitle
 \section{}
@@ -114,4 +115,48 @@
       0 \\ -1 \\ 1
     \end{pmatrix}
   \end{align*}
+  \subsection{}
+    \begin{align*}
+      c = \vec{a} \times \vec{b}
+      =
+      \begin{pmatrix}
+      a_1 \\ a_2 \\ a_3
+      \end{pmatrix}
+      \times
+      \begin{pmatrix}
+      b_1 \\ b_2 \\ b_3
+      \end{pmatrix}
+      =
+      \begin{pmatrix}
+      a_2 b_3 - a_3 b_2 \\ a_3 b_1 - a_1 b_3 \\ a_1 b_2 - a_2 b_1
+      \end{pmatrix}
+      \\[1em]
+      \vec{c} \cdot \vec{a}
+      =
+      \begin{pmatrix}
+      a_2 b_3 - a_3 b_2 \\ a_3 b_1 - a_1 b_3 \\ a_1 b_2 - a_2 b_1
+      \end{pmatrix}
+      \begin{pmatrix}
+      a_1 \\ a_2 \\ a_3
+      \end{pmatrix}
+      \\[1em]
+      = (a_2 b_3 - a_3 b_1) (a_1) + (a_3 b_1 - a_1 b_3) (a_2) + (a_1 b_2 - a_2 b_1) (a_3)
+      \\[1em]
+      = a_1 a_2 b_3 - a_1 a_3 b_2 + a_2 a_3 b_1 - a_1 a_2 b_3 + a_1 a_3 b_2 - a_2 a_3 b_1
+      = 0
+      \\[1em]
+      \vec{c} \cdot \vec{b}
+      =
+      \begin{pmatrix}
+      a_2 b_3 - a_3 b_2 \\ a_3 b_1 - a_1 b_3 \\ a_1 b_2 - a_2 b_1
+      \end{pmatrix}
+      \begin{pmatrix}
+      b_1 \\ b_2 \\ b_3
+      \end{pmatrix}
+      \\[1em]
+      = (a_2 b_3 - a_3 b_1) (b_1) + (a_3 b_1 - a_1 b_3) (b_2) + (a_1 b_2 - a_2 b_1) (b_3)
+      \\[1em]
+      = a_2 b_1 b_3 - a_3 b_1 b_2 + a_3 b_1 b_2 - a_1 b_2 b_3 + a_1 b_3 b_2 - a_2 b_1 b_3
+      = 0
+    \end{align*}
 \end{document}
