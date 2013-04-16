@@ -3,7 +3,7 @@
 \usepackage{amssymb}
 \usepackage[ngerman]{babel}
 \title{Computergrafik}
-\author{Lisa Kassebaum - 199856 \\ Andreas Pfohl \\ Martin Knoll - 193321 }
+\author{Lisa Kassebaum - 199856 \\ Andreas Pfohl - 184670 \\ Martin Knoll - 193321 }
 \date{}
 \begin{document}
 \maketitle
@@ -158,5 +158,40 @@
       \\[1em]
       = a_2 b_1 b_3 - a_3 b_1 b_2 + a_3 b_1 b_2 - a_1 b_2 b_3 + a_1 b_3 b_2 - a_2 b_1 b_3
       = 0
+    \end{align*}
+  \subsection{}
+    \begin{align*}
+      \vec{a} =
+      \begin{pmatrix}
+        3 \\ 0 \\ 4
+      \end{pmatrix}
+      \quad
+      \vec{b} =
+      \begin{pmatrix}
+        -4 \\ -3 \\ 0
+      \end{pmatrix}
+      \\[1em]
+      \text{a)}\quad a^Tb = \|a\|\|b\|\cos{(a)}\rightarrow \alpha = \cos^{-1} (\frac{a^Tb}{\|a\|\|b\|}) \\[1em]
+      \|a\| = 5 \\[1em]
+      \|b\| = 5 \\[1em]
+      \cos{(a)} \rightarrow \cos^{-1}(\frac{-12}{25}) = 2,69^\circ
+      \\[1em]
+      \text{b)}\quad \|a \times b\| = \|a\|\|b\|\sin{(a)}\rightarrow \alpha = \sin^{-1} (\frac{\|a \times b\|}{\|a\|\|b\|}) \\[1em]
+      \|a\| = 5 \\[1em]
+      \|b\| = 5 \\[1em]
+      \begin{pmatrix}
+        3 \\ 0 \\ 4
+      \end{pmatrix}
+      \times
+      \begin{pmatrix}
+        -4 \\ -3 \\ 0
+      \end{pmatrix}
+      =
+      \left|\begin{pmatrix}
+        12 \\ 16 \\ -9
+      \end{pmatrix}\right|
+      = \sqrt{481}
+      \\[1em]
+      \sin{(a)} \rightarrow \sin^{-1}(\frac{\sqrt{481}}{25}) = 61,31^\circ
     \end{align*}
 \end{document}
