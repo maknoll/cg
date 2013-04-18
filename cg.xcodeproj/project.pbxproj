@@ -9,16 +9,38 @@
 /* Begin PBXBuildFile section */
 		5B224E9D171FD46F006BFFE2 /* example01.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B224E9C171FD46F006BFFE2 /* example01.cpp */; };
 		5B224E9E171FD47E006BFFE2 /* example01.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B224E9C171FD46F006BFFE2 /* example01.cpp */; };
+		5B224EC9171FD745006BFFE2 /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B224EAD171FD745006BFFE2 /* Camera.cpp */; };
+		5B224ECA171FD745006BFFE2 /* ConstantMaterial.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B224EAF171FD745006BFFE2 /* ConstantMaterial.cpp */; };
+		5B224ECB171FD745006BFFE2 /* Image.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B224EB1171FD745006BFFE2 /* Image.cpp */; };
+		5B224ECC171FD745006BFFE2 /* Light.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B224EB3171FD745006BFFE2 /* Light.cpp */; };
+		5B224ECD171FD745006BFFE2 /* PerspectiveCamera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B224EB8171FD745006BFFE2 /* PerspectiveCamera.cpp */; };
+		5B224ECE171FD745006BFFE2 /* Plane.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B224EBA171FD745006BFFE2 /* Plane.cpp */; };
+		5B224ECF171FD745006BFFE2 /* Raytracer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B224EBD171FD745006BFFE2 /* Raytracer.cpp */; };
+		5B224ED0171FD745006BFFE2 /* Renderable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B224EBF171FD745006BFFE2 /* Renderable.cpp */; };
+		5B224ED1171FD745006BFFE2 /* Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B224EC1171FD745006BFFE2 /* Scene.cpp */; };
+		5B224ED2171FD745006BFFE2 /* Sphere.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B224EC3171FD745006BFFE2 /* Sphere.cpp */; };
+		5B224ED3171FD745006BFFE2 /* Triangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B224EC5171FD745006BFFE2 /* Triangle.cpp */; };
+		5B224ED4171FD745006BFFE2 /* VC-CG_test_raytracer_task1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B224EC7171FD745006BFFE2 /* VC-CG_test_raytracer_task1.cpp */; };
+		5B224ED7171FD8BD006BFFE2 /* Timer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B224ED5171FD8BD006BFFE2 /* Timer.cpp */; };
+		5B224ED8171FD8EF006BFFE2 /* Timer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B224ED5171FD8BD006BFFE2 /* Timer.cpp */; };
 		5B8032FE17170E3D00638E8C /* helloworld.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B8032EC17170DF000638E8C /* helloworld.cpp */; };
 		5B80330C17170E6200638E8C /* hellogl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B8032EF17170E1100638E8C /* hellogl.cpp */; };
 		5B80330E17170E7600638E8C /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B80330D17170E7600638E8C /* OpenGL.framework */; };
 		5B80331017170E7C00638E8C /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B80330F17170E7C00638E8C /* GLUT.framework */; };
 		5BF59ABD171845A000682E2C /* MemoryFun.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BF59ABA171845A000682E2C /* MemoryFun.cpp */; };
-		5BF59ABE171845A000682E2C /* Timer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BF59ABB171845A000682E2C /* Timer.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		5B224E90171FD421006BFFE2 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		5B224EA1171FD6AF006BFFE2 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -59,6 +81,37 @@
 /* Begin PBXFileReference section */
 		5B224E92171FD421006BFFE2 /* example01 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = example01; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B224E9C171FD46F006BFFE2 /* example01.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = example01.cpp; sourceTree = "<group>"; };
+		5B224EA3171FD6AF006BFFE2 /* raytracer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = raytracer; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B224EAD171FD745006BFFE2 /* Camera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Camera.cpp; sourceTree = "<group>"; };
+		5B224EAE171FD745006BFFE2 /* Camera.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Camera.hpp; sourceTree = "<group>"; };
+		5B224EAF171FD745006BFFE2 /* ConstantMaterial.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ConstantMaterial.cpp; sourceTree = "<group>"; };
+		5B224EB0171FD745006BFFE2 /* ConstantMaterial.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ConstantMaterial.hpp; sourceTree = "<group>"; };
+		5B224EB1171FD745006BFFE2 /* Image.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Image.cpp; sourceTree = "<group>"; };
+		5B224EB2171FD745006BFFE2 /* Image.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Image.hpp; sourceTree = "<group>"; };
+		5B224EB3171FD745006BFFE2 /* Light.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Light.cpp; sourceTree = "<group>"; };
+		5B224EB4171FD745006BFFE2 /* Light.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Light.hpp; sourceTree = "<group>"; };
+		5B224EB5171FD745006BFFE2 /* Material.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Material.hpp; sourceTree = "<group>"; };
+		5B224EB6171FD745006BFFE2 /* Math.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Math.hpp; sourceTree = "<group>"; };
+		5B224EB7171FD745006BFFE2 /* Matrix.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Matrix.hpp; sourceTree = "<group>"; };
+		5B224EB8171FD745006BFFE2 /* PerspectiveCamera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PerspectiveCamera.cpp; sourceTree = "<group>"; };
+		5B224EB9171FD745006BFFE2 /* PerspectiveCamera.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PerspectiveCamera.hpp; sourceTree = "<group>"; };
+		5B224EBA171FD745006BFFE2 /* Plane.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Plane.cpp; sourceTree = "<group>"; };
+		5B224EBB171FD745006BFFE2 /* Plane.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Plane.hpp; sourceTree = "<group>"; };
+		5B224EBC171FD745006BFFE2 /* Ray.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Ray.hpp; sourceTree = "<group>"; };
+		5B224EBD171FD745006BFFE2 /* Raytracer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Raytracer.cpp; sourceTree = "<group>"; };
+		5B224EBE171FD745006BFFE2 /* Raytracer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Raytracer.hpp; sourceTree = "<group>"; };
+		5B224EBF171FD745006BFFE2 /* Renderable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Renderable.cpp; sourceTree = "<group>"; };
+		5B224EC0171FD745006BFFE2 /* Renderable.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Renderable.hpp; sourceTree = "<group>"; };
+		5B224EC1171FD745006BFFE2 /* Scene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Scene.cpp; sourceTree = "<group>"; };
+		5B224EC2171FD745006BFFE2 /* Scene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Scene.hpp; sourceTree = "<group>"; };
+		5B224EC3171FD745006BFFE2 /* Sphere.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Sphere.cpp; sourceTree = "<group>"; };
+		5B224EC4171FD745006BFFE2 /* Sphere.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Sphere.hpp; sourceTree = "<group>"; };
+		5B224EC5171FD745006BFFE2 /* Triangle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Triangle.cpp; sourceTree = "<group>"; };
+		5B224EC6171FD745006BFFE2 /* Triangle.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Triangle.hpp; sourceTree = "<group>"; };
+		5B224EC7171FD745006BFFE2 /* VC-CG_test_raytracer_task1.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "VC-CG_test_raytracer_task1.cpp"; sourceTree = "<group>"; };
+		5B224EC8171FD745006BFFE2 /* Vector.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Vector.hpp; sourceTree = "<group>"; };
+		5B224ED5171FD8BD006BFFE2 /* Timer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Timer.cpp; sourceTree = "<group>"; };
+		5B224ED6171FD8BD006BFFE2 /* Timer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Timer.hpp; sourceTree = "<group>"; };
 		5B8032EC17170DF000638E8C /* helloworld.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = helloworld.cpp; sourceTree = "<group>"; };
 		5B8032EF17170E1100638E8C /* hellogl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = hellogl.cpp; sourceTree = "<group>"; };
 		5B8032F517170E2600638E8C /* helloworld */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = helloworld; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,12 +120,17 @@
 		5B80330F17170E7C00638E8C /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
 		5BF59AB01718454B00682E2C /* memoryfun */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = memoryfun; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BF59ABA171845A000682E2C /* MemoryFun.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MemoryFun.cpp; sourceTree = "<group>"; };
-		5BF59ABB171845A000682E2C /* Timer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Timer.cpp; sourceTree = "<group>"; };
-		5BF59ABC171845A000682E2C /* Timer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Timer.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		5B224E8F171FD421006BFFE2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5B224EA0171FD6AF006BFFE2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -113,9 +171,47 @@
 			name = examples;
 			sourceTree = "<group>";
 		};
+		5B224EAC171FD6C4006BFFE2 /* raytracer */ = {
+			isa = PBXGroup;
+			children = (
+				5B224ED5171FD8BD006BFFE2 /* Timer.cpp */,
+				5B224ED6171FD8BD006BFFE2 /* Timer.hpp */,
+				5B224EAD171FD745006BFFE2 /* Camera.cpp */,
+				5B224EAE171FD745006BFFE2 /* Camera.hpp */,
+				5B224EAF171FD745006BFFE2 /* ConstantMaterial.cpp */,
+				5B224EB0171FD745006BFFE2 /* ConstantMaterial.hpp */,
+				5B224EB1171FD745006BFFE2 /* Image.cpp */,
+				5B224EB2171FD745006BFFE2 /* Image.hpp */,
+				5B224EB3171FD745006BFFE2 /* Light.cpp */,
+				5B224EB4171FD745006BFFE2 /* Light.hpp */,
+				5B224EB5171FD745006BFFE2 /* Material.hpp */,
+				5B224EB6171FD745006BFFE2 /* Math.hpp */,
+				5B224EB7171FD745006BFFE2 /* Matrix.hpp */,
+				5B224EB8171FD745006BFFE2 /* PerspectiveCamera.cpp */,
+				5B224EB9171FD745006BFFE2 /* PerspectiveCamera.hpp */,
+				5B224EBA171FD745006BFFE2 /* Plane.cpp */,
+				5B224EBB171FD745006BFFE2 /* Plane.hpp */,
+				5B224EBC171FD745006BFFE2 /* Ray.hpp */,
+				5B224EBD171FD745006BFFE2 /* Raytracer.cpp */,
+				5B224EBE171FD745006BFFE2 /* Raytracer.hpp */,
+				5B224EBF171FD745006BFFE2 /* Renderable.cpp */,
+				5B224EC0171FD745006BFFE2 /* Renderable.hpp */,
+				5B224EC1171FD745006BFFE2 /* Scene.cpp */,
+				5B224EC2171FD745006BFFE2 /* Scene.hpp */,
+				5B224EC3171FD745006BFFE2 /* Sphere.cpp */,
+				5B224EC4171FD745006BFFE2 /* Sphere.hpp */,
+				5B224EC5171FD745006BFFE2 /* Triangle.cpp */,
+				5B224EC6171FD745006BFFE2 /* Triangle.hpp */,
+				5B224EC7171FD745006BFFE2 /* VC-CG_test_raytracer_task1.cpp */,
+				5B224EC8171FD745006BFFE2 /* Vector.hpp */,
+			);
+			name = raytracer;
+			sourceTree = "<group>";
+		};
 		5B8032D617170DD600638E8C = {
 			isa = PBXGroup;
 			children = (
+				5B224EAC171FD6C4006BFFE2 /* raytracer */,
 				5B224E9B171FD451006BFFE2 /* examples */,
 				5BF59AB91718458000682E2C /* memoryfun */,
 				5B8032EE17170DFC00638E8C /* hellogl */,
@@ -133,6 +229,7 @@
 				5B80330317170E5400638E8C /* hellogl */,
 				5BF59AB01718454B00682E2C /* memoryfun */,
 				5B224E92171FD421006BFFE2 /* example01 */,
+				5B224EA3171FD6AF006BFFE2 /* raytracer */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -157,8 +254,6 @@
 			isa = PBXGroup;
 			children = (
 				5BF59ABA171845A000682E2C /* MemoryFun.cpp */,
-				5BF59ABB171845A000682E2C /* Timer.cpp */,
-				5BF59ABC171845A000682E2C /* Timer.hpp */,
 			);
 			name = memoryfun;
 			sourceTree = "<group>";
@@ -181,6 +276,23 @@
 			name = example01;
 			productName = example01;
 			productReference = 5B224E92171FD421006BFFE2 /* example01 */;
+			productType = "com.apple.product-type.tool";
+		};
+		5B224EA2171FD6AF006BFFE2 /* raytracer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5B224EAB171FD6AF006BFFE2 /* Build configuration list for PBXNativeTarget "raytracer" */;
+			buildPhases = (
+				5B224E9F171FD6AF006BFFE2 /* Sources */,
+				5B224EA0171FD6AF006BFFE2 /* Frameworks */,
+				5B224EA1171FD6AF006BFFE2 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = raytracer;
+			productName = raytracer;
+			productReference = 5B224EA3171FD6AF006BFFE2 /* raytracer */;
 			productType = "com.apple.product-type.tool";
 		};
 		5B8032F417170E2600638E8C /* helloworld */ = {
@@ -259,6 +371,7 @@
 				5B80330217170E5400638E8C /* hellogl */,
 				5BF59AAF1718454B00682E2C /* memoryfun */,
 				5B224E91171FD421006BFFE2 /* example01 */,
+				5B224EA2171FD6AF006BFFE2 /* raytracer */,
 			);
 		};
 /* End PBXProject section */
@@ -269,6 +382,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B224E9E171FD47E006BFFE2 /* example01.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5B224E9F171FD6AF006BFFE2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B224EC9171FD745006BFFE2 /* Camera.cpp in Sources */,
+				5B224ECA171FD745006BFFE2 /* ConstantMaterial.cpp in Sources */,
+				5B224ECB171FD745006BFFE2 /* Image.cpp in Sources */,
+				5B224ECC171FD745006BFFE2 /* Light.cpp in Sources */,
+				5B224ECD171FD745006BFFE2 /* PerspectiveCamera.cpp in Sources */,
+				5B224ECE171FD745006BFFE2 /* Plane.cpp in Sources */,
+				5B224ECF171FD745006BFFE2 /* Raytracer.cpp in Sources */,
+				5B224ED0171FD745006BFFE2 /* Renderable.cpp in Sources */,
+				5B224ED1171FD745006BFFE2 /* Scene.cpp in Sources */,
+				5B224ED2171FD745006BFFE2 /* Sphere.cpp in Sources */,
+				5B224ED3171FD745006BFFE2 /* Triangle.cpp in Sources */,
+				5B224ED4171FD745006BFFE2 /* VC-CG_test_raytracer_task1.cpp in Sources */,
+				5B224ED7171FD8BD006BFFE2 /* Timer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,7 +427,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BF59ABD171845A000682E2C /* MemoryFun.cpp in Sources */,
-				5BF59ABE171845A000682E2C /* Timer.cpp in Sources */,
+				5B224ED8171FD8EF006BFFE2 /* Timer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,6 +442,20 @@
 			name = Debug;
 		};
 		5B224E99171FD421006BFFE2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		5B224EA9171FD6AF006BFFE2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		5B224EAA171FD6AF006BFFE2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -424,6 +571,15 @@
 			buildConfigurations = (
 				5B224E98171FD421006BFFE2 /* Debug */,
 				5B224E99171FD421006BFFE2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5B224EAB171FD6AF006BFFE2 /* Build configuration list for PBXNativeTarget "raytracer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5B224EA9171FD6AF006BFFE2 /* Debug */,
+				5B224EAA171FD6AF006BFFE2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
