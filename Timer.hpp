@@ -16,7 +16,6 @@
 #include <iostream>
 
 # if !(defined(_WIN32) || defined(_WIN64))
-#  include <features.h>
 #  include <unistd.h>
 #  include <time.h>
 # endif
