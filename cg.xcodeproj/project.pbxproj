@@ -112,6 +112,7 @@
 		5B224EC8171FD745006BFFE2 /* Vector.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Vector.hpp; sourceTree = "<group>"; };
 		5B224ED5171FD8BD006BFFE2 /* Timer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Timer.cpp; sourceTree = "<group>"; };
 		5B224ED6171FD8BD006BFFE2 /* Timer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Timer.hpp; sourceTree = "<group>"; };
+		5B224ED9171FDDD5006BFFE2 /* VC-CG_test_raytracer_task1.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = "VC-CG_test_raytracer_task1.tga"; sourceTree = "<group>"; };
 		5B8032EC17170DF000638E8C /* helloworld.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = helloworld.cpp; sourceTree = "<group>"; };
 		5B8032EF17170E1100638E8C /* hellogl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = hellogl.cpp; sourceTree = "<group>"; };
 		5B8032F517170E2600638E8C /* helloworld */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = helloworld; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -174,6 +175,7 @@
 		5B224EAC171FD6C4006BFFE2 /* raytracer */ = {
 			isa = PBXGroup;
 			children = (
+				5B224ED9171FDDD5006BFFE2 /* VC-CG_test_raytracer_task1.tga */,
 				5B224ED5171FD8BD006BFFE2 /* Timer.cpp */,
 				5B224ED6171FD8BD006BFFE2 /* Timer.hpp */,
 				5B224EAD171FD745006BFFE2 /* Camera.cpp */,
