@@ -169,7 +169,7 @@
 			children = (
 				5B224E9C171FD46F006BFFE2 /* example01.cpp */,
 			);
-			name = examples;
+			path = examples;
 			sourceTree = "<group>";
 		};
 		5B224EAC171FD6C4006BFFE2 /* raytracer */ = {
@@ -207,7 +207,7 @@
 				5B224EC7171FD745006BFFE2 /* VC-CG_test_raytracer_task1.cpp */,
 				5B224EC8171FD745006BFFE2 /* Vector.hpp */,
 			);
-			name = raytracer;
+			path = raytracer;
 			sourceTree = "<group>";
 		};
 		5B8032D617170DD600638E8C = {
@@ -241,7 +241,7 @@
 			children = (
 				5B8032EC17170DF000638E8C /* helloworld.cpp */,
 			);
-			name = helloworld;
+			path = helloworld;
 			sourceTree = "<group>";
 		};
 		5B8032EE17170DFC00638E8C /* hellogl */ = {
@@ -249,7 +249,7 @@
 			children = (
 				5B8032EF17170E1100638E8C /* hellogl.cpp */,
 			);
-			name = hellogl;
+			path = hellogl;
 			sourceTree = "<group>";
 		};
 		5BF59AB91718458000682E2C /* memoryfun */ = {
@@ -257,7 +257,7 @@
 			children = (
 				5BF59ABA171845A000682E2C /* MemoryFun.cpp */,
 			);
-			name = memoryfun;
+			path = memoryfun;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

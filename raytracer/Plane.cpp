@@ -20,7 +20,7 @@ Plane::closestIntersectionModel(const Ray &ray, real maxLambda) const
   real d=ray.direction().dot(mNormal);
 
   // No intersection if ray is (almost) parallel to plane
-  if (fabs(d)<Math::safetyEps())
+  if (fabs(d) < Math::safetyEps())
     return nullptr;
 
   real lambda = a / d;
