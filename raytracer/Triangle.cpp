@@ -18,21 +18,36 @@ Triangle::Triangle(const Vec3 &vertex0, const Vec3 &vertex1, const Vec3 &vertex2
 std::shared_ptr<RayIntersection>
 Triangle::closestIntersectionModel(const Ray &ray, real maxLambda) const
 {
-  return nullptr;
-  real a=(-ray.origin()).dot(mNormal);
-  real d=ray.direction().dot(mNormal);
+  // Möller–Trumbore algorithm
   
-  // No intersection if ray is (almost) parallel to plane
-  if (fabs(d)<Math::safetyEps())
+  Vec3 edge0, edge1, tvec, pvec, qvec;
+  real det, inv_det;
+  real u, v;
+  
+  edge0 = mVertices[1] - mVertices[0];
+  edge1 = mVertices[2] - mVertices[0];
+  pvec = -util::cross(ray.direction(), edge1);
+  
+  det = edge0.dot(pvec);
+  
+  if(det > -Math::safetyEps() && det < Math::safetyEps())
     return nullptr;
   
-  real lambda = a / d;
+  inv_det = 1.0 / det;
   
-  // Only intersections in [0,1] range are valid.
-  if (lambda < 0.0 || lambda > maxLambda)
+  tvec = ray.origin() - mVertices[0];
+  u = tvec.dot(pvec) * inv_det;
+  if(u < 0.0 || u > 1.0)
     return nullptr;
   
-  //real p = ()
+  qvec = -util::cross(tvec, edge0);
+  v = ray.direction().dot(qvec) * inv_det;
+  if(v < 0.0 || u + v > 1.0)
+    return nullptr;
+  
+  real lambda = edge1.dot(qvec) * inv_det;
+  if(lambda < Math::safetyEps() || lambda > maxLambda)
+    return nullptr;
   
   return std::make_shared<TriangleRayIntersection>(ray, lambda,
                                                    shared_from_this(), mNormal);
