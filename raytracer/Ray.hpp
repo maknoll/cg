@@ -55,8 +55,8 @@ public:
   /// constructor. No mutator methods are available.
   RayIntersection(const Ray &ray,
                   std::shared_ptr<const Renderable> renderable,
-                  const real lambda, const Vec3 &normal) :
-    mRay(ray), mRenderable(renderable), mLambda(lambda), mNormal(normal)
+                  const real lambda, const Vec3 &normal, const Vec3 &uvw) :
+    mRay(ray), mRenderable(renderable), mLambda(lambda), mNormal(normal), mUVW(uvw)
   {
     mPosition=ray.pointOnRay(mLambda);
   }
@@ -68,6 +68,7 @@ public:
   real lambda()                                  const { return mLambda; }
   const Vec3& position()                         const { return mPosition; }
   const Vec3& normal()                           const { return mNormal; }
+  const Vec3& uvw()                              const { return mUVW; }
 
   virtual void transform(const Mat4 &transform,
                          const Mat4 &transformInvTransp)
@@ -86,6 +87,7 @@ protected:
   real mLambda;
   Vec3 mPosition;
   Vec3 mNormal;
+  Vec3 mUVW;
 };
 
 } //namespace rt

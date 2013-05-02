@@ -10,7 +10,7 @@ namespace rt
 
 class SphereRayIntersection;
 
-/// Sphere defined by position and radius.
+//Unit sphere; i.e. sphere centered at origin with radius = 1
 class Sphere : public Renderable
 {
 public:
@@ -26,11 +26,10 @@ public:
 class SphereRayIntersection : public RayIntersection
 {
 public:
-  SphereRayIntersection(const Ray &ray,
+  SphereRayIntersection(const Ray &ray,  const real lambda,
                         std::shared_ptr<const Renderable> renderable,
-                        const real lambda,
-                        const Vec3 &normal) :
-    RayIntersection(ray,renderable,lambda,normal) {}
+                        const Vec3 &normal, const Vec3 &uvw) :
+    RayIntersection(ray,renderable,lambda,normal,uvw) {}
 };
 
 } //namespace rt

@@ -20,9 +20,13 @@
 		5B224ED1171FD745006BFFE2 /* Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B224EC1171FD745006BFFE2 /* Scene.cpp */; };
 		5B224ED2171FD745006BFFE2 /* Sphere.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B224EC3171FD745006BFFE2 /* Sphere.cpp */; };
 		5B224ED3171FD745006BFFE2 /* Triangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B224EC5171FD745006BFFE2 /* Triangle.cpp */; };
-		5B224ED4171FD745006BFFE2 /* VC-CG_test_raytracer_task1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B224EC7171FD745006BFFE2 /* VC-CG_test_raytracer_task1.cpp */; };
 		5B224ED7171FD8BD006BFFE2 /* Timer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B224ED5171FD8BD006BFFE2 /* Timer.cpp */; };
 		5B224ED8171FD8EF006BFFE2 /* Timer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B224ED5171FD8BD006BFFE2 /* Timer.cpp */; };
+		5B3A65551732A10200FD1E12 /* BezierPatchMesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B3A654A1732A10100FD1E12 /* BezierPatchMesh.cpp */; };
+		5B3A65561732A10200FD1E12 /* CheckerMaterial.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B3A654C1732A10100FD1E12 /* CheckerMaterial.cpp */; };
+		5B3A65571732A10200FD1E12 /* DiffuseMaterial.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B3A654F1732A10100FD1E12 /* DiffuseMaterial.cpp */; };
+		5B3A65581732A10200FD1E12 /* TriangleMesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B3A65521732A10100FD1E12 /* TriangleMesh.cpp */; };
+		5B3A65591732A10200FD1E12 /* VC-CG_test_raytracer_task2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B3A65541732A10200FD1E12 /* VC-CG_test_raytracer_task2.cpp */; };
 		5B8032FE17170E3D00638E8C /* helloworld.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B8032EC17170DF000638E8C /* helloworld.cpp */; };
 		5B80330C17170E6200638E8C /* hellogl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B8032EF17170E1100638E8C /* hellogl.cpp */; };
 		5B80330E17170E7600638E8C /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B80330D17170E7600638E8C /* OpenGL.framework */; };
@@ -112,7 +116,18 @@
 		5B224EC8171FD745006BFFE2 /* Vector.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Vector.hpp; sourceTree = "<group>"; };
 		5B224ED5171FD8BD006BFFE2 /* Timer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Timer.cpp; sourceTree = "<group>"; };
 		5B224ED6171FD8BD006BFFE2 /* Timer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Timer.hpp; sourceTree = "<group>"; };
-		5B224ED9171FDDD5006BFFE2 /* VC-CG_test_raytracer_task1.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = "VC-CG_test_raytracer_task1.tga"; sourceTree = "<group>"; };
+		5B224ED9171FDDD5006BFFE2 /* VC-CG_test_raytracer_task2.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = "VC-CG_test_raytracer_task2.tga"; sourceTree = "<group>"; };
+		5B3A654A1732A10100FD1E12 /* BezierPatchMesh.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BezierPatchMesh.cpp; sourceTree = "<group>"; };
+		5B3A654B1732A10100FD1E12 /* BezierPatchMesh.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BezierPatchMesh.hpp; sourceTree = "<group>"; };
+		5B3A654C1732A10100FD1E12 /* CheckerMaterial.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CheckerMaterial.cpp; sourceTree = "<group>"; };
+		5B3A654D1732A10100FD1E12 /* CheckerMaterial.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CheckerMaterial.hpp; sourceTree = "<group>"; };
+		5B3A654E1732A10100FD1E12 /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
+		5B3A654F1732A10100FD1E12 /* DiffuseMaterial.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DiffuseMaterial.cpp; sourceTree = "<group>"; };
+		5B3A65501732A10100FD1E12 /* DiffuseMaterial.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DiffuseMaterial.hpp; sourceTree = "<group>"; };
+		5B3A65511732A10100FD1E12 /* Intersection.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Intersection.hpp; sourceTree = "<group>"; };
+		5B3A65521732A10100FD1E12 /* TriangleMesh.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TriangleMesh.cpp; sourceTree = "<group>"; };
+		5B3A65531732A10200FD1E12 /* TriangleMesh.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TriangleMesh.hpp; sourceTree = "<group>"; };
+		5B3A65541732A10200FD1E12 /* VC-CG_test_raytracer_task2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "VC-CG_test_raytracer_task2.cpp"; sourceTree = "<group>"; };
 		5B8032EC17170DF000638E8C /* helloworld.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = helloworld.cpp; sourceTree = "<group>"; };
 		5B8032EF17170E1100638E8C /* hellogl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = hellogl.cpp; sourceTree = "<group>"; };
 		5B8032F517170E2600638E8C /* helloworld */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = helloworld; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -175,7 +190,18 @@
 		5B224EAC171FD6C4006BFFE2 /* raytracer */ = {
 			isa = PBXGroup;
 			children = (
-				5B224ED9171FDDD5006BFFE2 /* VC-CG_test_raytracer_task1.tga */,
+				5B224ED9171FDDD5006BFFE2 /* VC-CG_test_raytracer_task2.tga */,
+				5B3A654A1732A10100FD1E12 /* BezierPatchMesh.cpp */,
+				5B3A654B1732A10100FD1E12 /* BezierPatchMesh.hpp */,
+				5B3A654C1732A10100FD1E12 /* CheckerMaterial.cpp */,
+				5B3A654D1732A10100FD1E12 /* CheckerMaterial.hpp */,
+				5B3A654E1732A10100FD1E12 /* CMakeLists.txt */,
+				5B3A654F1732A10100FD1E12 /* DiffuseMaterial.cpp */,
+				5B3A65501732A10100FD1E12 /* DiffuseMaterial.hpp */,
+				5B3A65511732A10100FD1E12 /* Intersection.hpp */,
+				5B3A65521732A10100FD1E12 /* TriangleMesh.cpp */,
+				5B3A65531732A10200FD1E12 /* TriangleMesh.hpp */,
+				5B3A65541732A10200FD1E12 /* VC-CG_test_raytracer_task2.cpp */,
 				5B224ED5171FD8BD006BFFE2 /* Timer.cpp */,
 				5B224ED6171FD8BD006BFFE2 /* Timer.hpp */,
 				5B224EAD171FD745006BFFE2 /* Camera.cpp */,
@@ -402,8 +428,12 @@
 				5B224ED1171FD745006BFFE2 /* Scene.cpp in Sources */,
 				5B224ED2171FD745006BFFE2 /* Sphere.cpp in Sources */,
 				5B224ED3171FD745006BFFE2 /* Triangle.cpp in Sources */,
-				5B224ED4171FD745006BFFE2 /* VC-CG_test_raytracer_task1.cpp in Sources */,
 				5B224ED7171FD8BD006BFFE2 /* Timer.cpp in Sources */,
+				5B3A65551732A10200FD1E12 /* BezierPatchMesh.cpp in Sources */,
+				5B3A65561732A10200FD1E12 /* CheckerMaterial.cpp in Sources */,
+				5B3A65571732A10200FD1E12 /* DiffuseMaterial.cpp in Sources */,
+				5B3A65581732A10200FD1E12 /* TriangleMesh.cpp in Sources */,
+				5B3A65591732A10200FD1E12 /* VC-CG_test_raytracer_task2.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -584,6 +614,7 @@
 				5B224EAA171FD6AF006BFFE2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5B8032DA17170DD600638E8C /* Build configuration list for PBXProject "cg" */ = {
 			isa = XCConfigurationList;

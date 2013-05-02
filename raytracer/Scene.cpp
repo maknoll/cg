@@ -16,7 +16,7 @@ Scene::~Scene()
 }
 
 std::shared_ptr<RayIntersection>
-Scene::closestIntersection(const Ray &ray, real maxLambda)
+Scene::closestIntersection(const Ray &ray, real maxLambda) const
 { 
   real closestLambda = maxLambda;
   std::shared_ptr<RayIntersection> tmpIntersection;
@@ -24,7 +24,7 @@ Scene::closestIntersection(const Ray &ray, real maxLambda)
   for (size_t i=0;i<mRenderables.size();++i)
   {
     std::shared_ptr<Renderable> r = mRenderables[i];
-    if((tmpIntersection = r->closestIntersection(ray,closestLambda)))
+    if(tmpIntersection = r->closestIntersection(ray,closestLambda))
     {
       if(tmpIntersection->lambda() < closestLambda)
       {
@@ -36,7 +36,7 @@ Scene::closestIntersection(const Ray &ray, real maxLambda)
   return closestIntersection;
 }
 
-bool Scene::anyIntersection(const Ray &ray, real maxLambda)
+bool Scene::anyIntersection(const Ray &ray, real maxLambda) const
 {
   for (size_t i=0;i<mRenderables.size();++i)
   {

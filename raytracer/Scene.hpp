@@ -37,11 +37,11 @@ public:
   /// Computes the closest intersection of a ray and any object in scene.
   std::shared_ptr<RayIntersection>
   closestIntersection(const Ray &ray,
-                      real maxLambda = std::numeric_limits<real>::infinity());
+                      real maxLambda = std::numeric_limits<real>::infinity()) const; 
 
   /// Checks whether a ray intersects any object in the scene.
   bool anyIntersection(const Ray &ray,
-                       real maxLambda = std::numeric_limits<real>::infinity());
+                       real maxLambda = std::numeric_limits<real>::infinity()) const;
 
   const Vec4& backgroundColor() const { return mBackgroundColor; }
   std::shared_ptr<Camera> camera()    {return mCamera;}

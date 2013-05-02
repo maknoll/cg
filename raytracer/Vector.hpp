@@ -47,10 +47,12 @@ class Vector {
     typedef T real;
 
     Vector();                                           //! empty constructor (coefficients == 0)
+    Vector(const Vector &v);                            //! copy constructor
     template<typename TT>
     Vector(const Vector<N,TT> &v);                      //! copy constructor
+    Vector(Vector &&v);                                 //! rvalue reference constructor
     template<typename Tuple>
-    Vector(const Tuple& t);                             //! tuple value-based constructor
+    Vector(const Tuple& t);                             //! tuple value-based constructor (unsafe / ugly for MSVC compiler)
 
 #ifndef VECTOR_NO_UNSAFE
     template<typename TT>
@@ -104,7 +106,8 @@ class Vector {
 
     Vector<N,T>& operator =(const Vector &v);           //! assignment operator
     template<typename TT>
-    Vector& operator =(const Vector<N,TT> &v);          //! assignment operatorMath
+    Vector& operator =(const Vector<N,TT> &v);          //! assignment operator
+    Vector& operator =(Vector &&v);                     //! rvalue reference assognment operator
 
     T norm()        const;                              //! Euclidean norm
     T normSquared() const;                              //! squared Euclidean norm
@@ -155,10 +158,14 @@ Vector<N,T>::Vector() {
 }
 
 template<size_t N, typename T>
+Vector<N,T>::Vector(const Vector<N,T> &v) {
+  copy(begin(v.mCoefficients), end(v.mCoefficients), begin(mCoefficients));
+}
+
+template<size_t N, typename T>
 template<typename TT>
 Vector<N,T>::Vector(const Vector<N,TT> &v) {
-  for(size_t i=0; i<N; ++i)
-    mCoefficients[i] = T(v[i]);
+  copy(begin(v.mCoefficients), end(v.mCoefficients), begin(mCoefficients));
 }
 
 template<size_t N, typename T>
@@ -167,6 +174,11 @@ Vector<N,T>::Vector(const Tuple& t) {
   static_assert(tuple_size<Tuple>::value == N, "Error: Wrong number of Vector initialization values!");
 
   TupleFiller<Tuple,Vector<N,T>,N>::fill(*this, t);
+}
+
+template<size_t N, typename T>
+Vector<N,T>::Vector(Vector &&v) {
+  copy(begin(v.mCoefficients), end(v.mCoefficients), begin(mCoefficients));
 }
 
 #ifndef __GNUC__
@@ -212,8 +224,7 @@ template<size_t N, typename T>
 template<typename TT>
 Vector<N,T>::operator Vector<N,TT>() {
   Vector<N,TT> ret;
-  for(size_t i=0; i<N; ++i)
-    ret[i] = this->mCoefficients[i];
+  copy(begin(mCoefficients), end(mCoefficients), begin(ret));
   return ret;
 }
 #endif
@@ -222,16 +233,20 @@ template<size_t N, typename T>
 Vector<N,T>& Vector<N,T>::operator =(const Vector<N,T> &v) {
   if(this == &v)
     return *this;
-  for(size_t i=0; i<N; ++i)
-    this->mCoefficients[i] = v(i);
+  copy(begin(v.mCoefficients), end(v.mCoefficients), begin(mCoefficients));
   return *this;
 }
 
 template<size_t N, typename T>
 template<typename TT>
 Vector<N,T>& Vector<N,T>::operator =(const Vector<N,TT> &v) {
-  for(size_t i=0; i<N; ++i)
-    this->mCoefficients[i] = T(v(i));
+  copy(begin(v.mCoefficients), end(v.mCoefficients), begin(mCoefficients));
+  return *this;
+}
+
+template<size_t N, typename T>
+Vector<N,T>& Vector<N,T>::operator =(Vector<N,T> &&v) {
+  copy(begin(v.mCoefficients), end(v.mCoefficients), begin(mCoefficients));
   return *this;
 }
 
@@ -426,9 +441,9 @@ T Vector<N,T>::operator |(const Vector<N,T> &v) const {
   return this->dot(v);
 }
 
-template<size_t N, typename T1, typename T2>
-Vector<N,T2> operator *(const T1 &s, const Vector<N,T2> &v) {
-  return v * T2(s);
+template<size_t N, typename T>
+Vector<N,T> operator *(const T &s, const Vector<N,T> &v) {
+  return v * T(s);
 }
 
 template<size_t N, typename T>
@@ -457,6 +472,10 @@ Vector<3,decltype(T1(0)*T2(0))> cross(const Vector<3,T1> &v0,
                                       const Vector<3,T2> &v1) {
   return v0 % v1;
 }
+template<typename T1, typename T2>
+T1 dot(const Vector<3,T1> &v0,const Vector<3,T2> &v1) {
+  return v0 | v1;
+}
 
 template<size_t N, typename T1, typename T2>
 Vector<N,decltype(T1(0)*T2(0))> reflect(const Vector<N,T1> &v0,
@@ -467,6 +486,10 @@ Vector<N,decltype(T1(0)*T2(0))> reflect(const Vector<N,T1> &v0,
 typedef Vector<2,float> Vec2f;
 typedef Vector<3,float> Vec3f;
 typedef Vector<4,float> Vec4f;
+
+typedef Vector<2,double> Vec2d;
+typedef Vector<3,double> Vec3d;
+typedef Vector<4,double> Vec4d;
 
 typedef Vector<2,int> Vec2i;
 typedef Vector<3,int> Vec3i;

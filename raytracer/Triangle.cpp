@@ -1,56 +1,39 @@
 #include "Triangle.hpp"
 #include "Ray.hpp"
 #include <memory>
+#include "Intersection.hpp"
 
 namespace rt
 {
-Triangle::Triangle(const Vec3 &vertex0, const Vec3 &vertex1, const Vec3 &vertex2)
+Triangle::Triangle(const Vec3 &v0, const Vec3 &v1, const Vec3 &v2,
+                   const Vec3 &uvw0, const Vec3 &uvw1, const Vec3 &uvw2)
 {
-  mVertices[0] = vertex0;
-  mVertices[1] = vertex1;
-  mVertices[2] = vertex2;
-  Vec3 edge0 = vertex1 - vertex0;
-  Vec3 edge1 = vertex2 - vertex0;
-  Vec3 normal = -util::cross(edge0, edge1).normalized();
-  mNormal = normal;
+  mVertices[0] = v0;
+  mVertices[1] = v1;
+  mVertices[2] = v2;
+  mUVW[0] = uvw0;
+  mUVW[1] = uvw1;
+  mUVW[2] = uvw2;
 }
 
 std::shared_ptr<RayIntersection>
 Triangle::closestIntersectionModel(const Ray &ray, real maxLambda) const
 {
-  // Möller–Trumbore algorithm
-  
-  Vec3 edge0, edge1, tvec, pvec, qvec;
-  real det, inv_det;
-  real u, v;
-  
-  edge0 = mVertices[1] - mVertices[0];
-  edge1 = mVertices[2] - mVertices[0];
-  pvec = -util::cross(ray.direction(), edge1);
-  
-  det = edge0.dot(pvec);
-  
-  if(det > -Math::safetyEps() && det < Math::safetyEps())
+  Vec3 bary;
+  real lambda;
+
+  if(!Intersection::lineTriangle(ray,mVertices[0],mVertices[1],mVertices[2],bary,lambda))
     return nullptr;
-  
-  inv_det = 1.0 / det;
-  
-  tvec = ray.origin() - mVertices[0];
-  u = tvec.dot(pvec) * inv_det;
-  if(u < 0.0 || u > 1.0)
+
+  // Intersection is inside triangle if 0<=u,v,w<=1
+  if(lambda<0 || lambda>maxLambda)
     return nullptr;
-  
-  qvec = -util::cross(tvec, edge0);
-  v = ray.direction().dot(qvec) * inv_det;
-  if(v < 0.0 || u + v > 1.0)
-    return nullptr;
-  
-  real lambda = edge1.dot(qvec) * inv_det;
-  if(lambda < Math::safetyEps() || lambda > maxLambda)
-    return nullptr;
-  
-  return std::make_shared<TriangleRayIntersection>(ray, lambda,
-                                                   shared_from_this(), mNormal);
+
+  const Vec3 normal = util::cross(mVertices[1]-mVertices[0],mVertices[2]-mVertices[0]).normalized();
+  const Vec3 uvw = mUVW[0]*bary[0]+mUVW[1]*bary[1]+mUVW[2]*bary[2];
+
+    return std::make_shared<TriangleRayIntersection>(ray, lambda, shared_from_this(),normal,uvw);
+                                
 }
 
 } //namespace rt
