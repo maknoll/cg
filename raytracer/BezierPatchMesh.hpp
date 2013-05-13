@@ -53,7 +53,8 @@ private:
   size_t mResU, mResV;              //!< triangle resolution in both parameter directions
   size_t mM, mN;                    //!< patch control point dimensions
   std::vector<Vec3> mControlPoints; //!< patch control points
-  Vec3 kabeljau(unsigned long, unsigned long, real, std::vector<Vec3>, unsigned long) const;
+  Vec3 kabeljau(unsigned long, unsigned long, real, std::vector<Vec3>, std::function<int (unsigned long)>) const;
+  Vec3 tangent(real, std::vector<Vec3>, unsigned long) const;
 };
 } //namespace rt
 

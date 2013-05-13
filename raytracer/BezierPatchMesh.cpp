@@ -78,32 +78,35 @@ namespace rt
 	}
   }
   
-  Vec3 BezierPatchMesh::kabeljau(unsigned long i, unsigned long j, real scalar, std::vector<Vec3> points, unsigned long n) const
+  Vec3 BezierPatchMesh::kabeljau(unsigned long i, unsigned long j, real scalar, std::vector<Vec3> points, std::function<int (unsigned long)> offset) const
   {
-	if (0 == i) return points[mM*n + j];
+	if (0 == i) return points[offset(j)];
 	
-	return (1 - scalar) * kabeljau(i-1, j, scalar, points, n) + scalar * kabeljau(i-1, j+1, scalar, points, n);
+	return (1 - scalar) * kabeljau(i-1, j, scalar, points, offset) + scalar * kabeljau(i-1, j+1, scalar, points, offset);
   }
   
+  Vec3 BezierPatchMesh::tangent(real t, std::vector<Vec3> points, unsigned long n) const
+  {
+	return (real)n * (kabeljau(n-1, 1, t, points, [] (unsigned long n) {return n;}) - kabeljau(n-1, 0, t, points, [] (unsigned long n) {return n;}));
+  }
   
   BezierPatchMesh::BezierPatchSample BezierPatchMesh::sample(real u, real v) const
   {
 	BezierPatchSample ret;
 	ret.uv = Vec2(u,v);
-	
-	// Programming TASK 2: implement this method
-	// You need to compute ret.position and ret.normal!
-	
-	// This data will be used within the initialize() function for the
-	// triangle mesh construction.
 
 	std::vector<Vec3> utemps (mN);
 	for (unsigned int i = 0; i < mN; i++) {
-	  utemps[i] = kabeljau(mM-1, 0, u, mControlPoints, i);
+	  utemps[i] = kabeljau(mM-1, 0, u, mControlPoints, [this,i] (unsigned long n) {return mM*i + n;});
 	}
 	
-	ret.position = kabeljau(mN-1, 0, v, utemps, 0);
-	ret.normal = Vec3();
+	std::vector<Vec3> vtemps (mM);
+	for (unsigned int i = 0; i < mM; i++) {
+	  vtemps[i] = kabeljau(mN-1, 0, v, mControlPoints, [this,i] (unsigned long n) {return mM*n + i;});
+	}
+	
+	ret.position = kabeljau(mN-1, 0, v, utemps, [] (unsigned long n) {return n;});
+	ret.normal = util::cross(tangent(u, vtemps, mM-1),tangent(v, utemps, mN-1)).normalize();
 	return ret;
   }
   
