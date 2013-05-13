@@ -25,6 +25,7 @@ namespace rt
 {
 
 typedef double real;
+typedef util::Vector<2,real> Vec2;
 typedef util::Vector<3,real> Vec3;
 typedef util::Vector<4,real> Vec4;
 

@@ -5,7 +5,7 @@ namespace rt {
 Ray PerspectiveCamera::ray(size_t x, size_t y) const
 {
   return Ray(this->position(),
-           ((this->topLeft() + x * this->right() - y * this->down()) - this->position()));
+           ((this->topLeft() + this->right()*real(x) - this->down()*real(y)) - this->position()));
 }
 
 } //namespace rt

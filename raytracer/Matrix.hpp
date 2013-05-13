@@ -85,6 +85,9 @@ class Matrix {
     Matrix& operator *=(const Matrix<M,N,TT> &m);                     //! matrix inplace multiplication
 
     template<typename TT>
+    Matrix& multLeft(const Matrix<M,N,TT> &m);                        //! matrix inplace left multiplication
+
+    template<typename TT>
     Vector<M,decltype(T(0)*TT(0))>                                    //! matrix vector multiplication
     operator *(const Vector<N,TT> &v) const;
 
@@ -336,6 +339,21 @@ Matrix<M,N,T>& Matrix<M,N,T>::operator *=(const Matrix<M,N,TT> &m) {
 
 template<size_t M, size_t N, typename T>
 template<typename TT>
+Matrix<M,N,T>& Matrix<M,N,T>::multLeft(const Matrix<M,N,TT> &m) {
+
+  column_type rhs_cols[N];
+  for(size_t j=0; j<N; ++j)
+    rhs_cols[j] = column(j);
+
+  for(size_t i=0; i<M; ++i)
+    for(size_t j=0; j<N; ++j)
+      mCoefficients[i][j] = m.row(i) | rhs_cols[j];
+
+  return *this;
+}
+
+template<size_t M, size_t N, typename T>
+template<typename TT>
 Vector<M,decltype(T(0)*TT(0))>
 Matrix<M,N,T>::operator *(const Vector<N,TT> &v) const {
   Vector<M,decltype(T(0)*TT(0))> ret;
@@ -352,7 +370,7 @@ template<size_t M1, size_t N1,
          typename T1, typename T2>
 Matrix<M1,N2,decltype(T1(0)*T2(0))> operator *(const Matrix<M1,N1,T1> &m1,
                                                const Matrix<M2,N2,T2> &m2) {
-  static_assert(N1==M1, "Error: Matrix dimensions mismatch!");
+  static_assert(N1==M1, "Error: Matrix dimensions missmatch!");
 
   typedef Matrix<M1,N2,decltype(T1(0)*T2(0))> RetType;
 
@@ -473,9 +491,7 @@ AffineMatrix<M,T>& AffineMatrix<M,T>::translate(const Vector<M-1,TT> &v) {
   for(size_t i=0; i<M-1; ++i)
     Transf(i,M-1) = v(i);
 
-  Transf *= *this;
-
-  *this = Transf;
+  this->multLeft(Transf);
 
   return *this;
 }
@@ -486,11 +502,9 @@ AffineMatrix<M,T>& AffineMatrix<M,T>::scale(const Vector<M-1,TT> &s) {
   AffineMatrix<M,T> Transf;
 
   for(size_t i=0; i<M-1; ++i)
-    Transf(i,i) = s(i);
+    Transf(i,i) = T(s(i));
 
-  Transf *= *this;
-
-  *this = Transf;
+  this->multLeft(Transf);
 
   return *this;
 }
@@ -514,7 +528,7 @@ AffineMatrix<M,T>& AffineMatrix<M,T>::rotate(const Vector<3,TT> &axis,
   Vector<3,T> a(axis); a.normalize();
   const T &a1 = a(0), &a2 = a(1), &a3 = a(2);
 
-  const T s = sin(angle), cm1 = cos(angle) - 1;
+  const T s = sin(angle), cm1 = cos(angle) - T(1);
 
   AffineMatrix<4,T> R;
 
@@ -522,9 +536,7 @@ AffineMatrix<M,T>& AffineMatrix<M,T>::rotate(const Vector<3,TT> &axis,
   R(1,0) = a3*s - a1*a2*cm1;    R(1,1) = 1 - (a2*a2 - 1)*cm1; R(1,2) = - a1*s - a2*a3*cm1;
   R(2,0) = - a2*s - a1*a3*cm1;  R(2,1) = a1*s - a2*a3*cm1;    R(2,2) = 1 - (a3*a3 - 1)*cm1;
 
-  R *= *this;
-
-  *this = R;
+  this->multLeft(R);
 
   return *this;
 }

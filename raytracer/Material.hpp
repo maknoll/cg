@@ -13,7 +13,7 @@ class Light;
 class Material
 {
 public:
-  Material(const Vec3 &color) :
+  Material(const Vec3 &color = Vec3(0.5,0.5,0.5)) :
     mColor(color) {}
 
   virtual ~Material() {}
@@ -23,10 +23,10 @@ public:
   virtual Vec4 shade(std::shared_ptr<RayIntersection> intersection, 
                      const Light& light) const = 0;
 
-  const Vec3& color()      const {return mColor;}
+  const Vec3& color() const {return mColor;}
 
   /// Valid RGB color components have range [0,1].
-	void setColor(Vec3& color) { mColor=color; }
+	void setColor(const Vec3& color) { mColor=color; }
 
 private:
 Vec3 mColor;

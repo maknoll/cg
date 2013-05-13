@@ -24,7 +24,7 @@ public:
   void setNormal(const Vec3 &normal ) { mNormal=normal; mNormal.normalize(); }
 
 private:
-  Vec3 mNormal;
+  Vec3 mNormal, mTangent, mBitangent;
 };
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -34,11 +34,10 @@ private:
 class PlaneRayIntersection : public RayIntersection
 {
 public:
-  PlaneRayIntersection(const Ray &ray,
+  PlaneRayIntersection(const Ray &ray, const real lambda,
                        std::shared_ptr<const Renderable> renderable,
-                       const real lambda,
-                       const Vec3 &normal) :
-    RayIntersection(ray,renderable,lambda,normal) {}
+                       const Vec3 &normal, const Vec3 &uvw) :
+    RayIntersection(ray,renderable,lambda,normal,uvw) {}
 };
 
 }
