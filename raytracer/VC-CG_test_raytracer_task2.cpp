@@ -194,7 +194,7 @@ std::shared_ptr<rt::Scene> makeTask2Scene()
   // for the triangle mesh along the respective direction in the
   // parametrization
   // Experiment with larger numbers for a smoother surface!
-  std::shared_ptr<rt::Renderable> bezierWave = makeBezierWave(6,6);
+  std::shared_ptr<rt::Renderable> bezierWave = makeBezierWave(12,12);
 
   // Position the bezier surface over the left podium
   bezierWave->transform().translate(rt::Vec3( 0,-0.6, 0.3));
@@ -212,7 +212,7 @@ std::shared_ptr<rt::Scene> makeTask2Scene()
   // see http://en.wikipedia.org/wiki/Utah_teapot
   // Warning: this significantly increases the rendering time!
   // Expect a rendering time of within minutes for an image resolution of 1024x512
-  //makeBezierTeapot(scene,materialChecker,8,8);
+  makeBezierTeapot(scene,materialChecker,8,8);
 
   return scene;
 }

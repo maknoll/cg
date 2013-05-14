@@ -106,7 +106,7 @@ namespace rt
 	}
 	
 	ret.position = kabeljau(mN-1, 0, v, utemps, [] (unsigned long n) {return n;});
-	ret.normal = util::cross(tangent(u, vtemps, mM-1),tangent(v, utemps, mN-1)).normalize();
+	ret.normal = util::cross(tangent(u, vtemps, mM-1),tangent(v, utemps, mN-1));
 	return ret;
   }
   
