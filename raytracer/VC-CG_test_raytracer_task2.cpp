@@ -212,14 +212,14 @@ std::shared_ptr<rt::Scene> makeTask2Scene()
   // see http://en.wikipedia.org/wiki/Utah_teapot
   // Warning: this significantly increases the rendering time!
   // Expect a rendering time of within minutes for an image resolution of 1024x512
-  makeBezierTeapot(scene,materialChecker,8,8);
+  makeBezierTeapot(scene,materialChecker,10,10);
 
   return scene;
 }
 
 int main()
 {
-  std::shared_ptr<rt::Image> image = std::make_shared<rt::Image>(1024,512);
+  std::shared_ptr<rt::Image> image = std::make_shared<rt::Image>(1920,1080);
   std::shared_ptr<rt::Scene> scene = makeTask2Scene();
 
   std::shared_ptr<rt::Raytracer> raytracer = std::make_shared<rt::Raytracer>();
