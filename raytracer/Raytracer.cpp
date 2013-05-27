@@ -27,6 +27,8 @@ void Raytracer::renderToImage(std::shared_ptr<Image> image) const
   if(!mScene->camera())
     return;
 
+  mScene->prepareScene();
+
   Camera &camera = *(mScene->camera().get());
   camera.setResolution(image->width(),image->height());
 
@@ -74,6 +76,25 @@ Vec4 Raytracer::shade(std::shared_ptr<RayIntersection> intersection,
     if (!mScene->anyIntersection(shadowRay,L.norm()))
       color += material->shade(intersection,light);
   }
+
+
+  if (depth<mMaxDepth)
+  {
+    //Programming TASK 3: implement the recursive raytracing call here
+
+    // Note: a new ray must be constructed, that originates in the current intersection
+    // point and points in the direction of the reflected ray.
+    // Note: in order to avoid numerical issues, the new ray origin is shifted slightly
+    // in the direction of the normal at the intersection point. Such that:
+    // Vec3 reflectedRayOrigin = intersection->position()+offset
+    // You now need to compute the reflected ray and perform the recursive raytracing call.
+	Vec3 reflectedRayOrigin = intersection->position()+offset;
+	Vec3 reflectedDirection = util::reflect(intersection->ray().direction(), intersection->normal());
+	Ray reflectedRay(reflectedRayOrigin, reflectedDirection);
+	real reflectance = material->reflectance();
+	color = color * (1 - reflectance) +  reflectance * trace(reflectedRay, depth - 1) + Vec4(0.0,0.0,0.0,1.0);
+  }
+
   return color;
 }
 

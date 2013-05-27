@@ -31,6 +31,18 @@ typedef util::Vector<4,real> Vec4;
 
 typedef util::AffineMatrix<4,real> Mat4;
 
+typedef util::Vector<2,float> Vec2f;
+typedef util::Vector<3,float> Vec3f;
+typedef util::Vector<4,float> Vec4f;
+
+typedef util::Vector<2,double> Vec2d;
+typedef util::Vector<3,double> Vec3d;
+typedef util::Vector<4,double> Vec4d;
+
+typedef util::Vector<3,int> Vec2i;
+typedef util::Vector<3,int> Vec3i;
+typedef util::Vector<3,int> Vec4i;
+
 class Math
 {
 public:
@@ -41,7 +53,10 @@ public:
     return std::max(minVal, std::min(maxVal,val));
   }
 
-  inline static const real safetyEps() { return 0.00001; }
+  inline static const real safetyEps() { return 0.000000001; }
+
+  template <typename T>
+  static T log2(T d) {return log(d)/log(T(2)) ;}	
 };
 
 } //namespace rt

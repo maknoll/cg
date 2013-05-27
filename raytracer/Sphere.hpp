@@ -17,6 +17,9 @@ public:
   /// Implements the intersection computation between ray and sphere.
   std::shared_ptr<RayIntersection>
   closestIntersectionModel(const Ray &ray, real maxLambda) const override;
+
+  // Override this method to recompute the bounding box of this object.
+  BoundingBox computeBoundingBox() const override;
 };
 
 ///////////////////////////////////////////////////////////////////////////////

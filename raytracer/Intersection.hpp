@@ -15,7 +15,7 @@ public:
   static bool linePlane(const Ray& ray, const Vec3 &a, const Vec3 &b,
                         const Vec3 &c, Vec3& uvw, real & lambda)
   {
-  /*
+
   // Barycentric approach according to lecture slides
   // Ray: x=o+t*d
   // Barycentric Triangle: x=a*u+b*v+c*w
@@ -30,6 +30,9 @@ public:
   // or in short: A*x = o
   // Then, solution is given by A^-1 * o = x
   // with x = (u,v,w,t)^T
+  /*
+  const Vec3& o = ray.origin();
+  const Vec3& d = ray.direction();
   Mat4 A;
   A(0,0)=a[0];A(0,1)=b[0];A(0,2)=c[0];A(0,3)=-d[0];
   A(1,0)=a[1];A(1,1)=b[1];A(1,2)=c[1];A(1,3)=-d[1];
@@ -39,19 +42,12 @@ public:
   A.invert();
   Vec4 x=A*Vec4(o,1);
 
-  real u = x[0];
-  real v = x[1];
-  real w = x[2];
-  real t = x[3];
+  uvw[0] = x[0];
+  uvw[1] = x[1];
+  uvw[2] = x[2];
+  lambda = x[3];
 
-  // Intersection is inside triangle if 0<=u,v,w<=1
-  if(u<0 || u>1 || v<0 || v>1 || w<0 || w>1 || t<0 || t>maxLambda)
-    return nullptr;
-
-  Vec3 p = a*u+b*v+c*w;
-  Vec3 normal = util::cross(c-a,b-a).normalized();
-
-  return std::make_shared<TriangleRayIntersection>(ray, t, shared_from_this(),normal);
+  return true;
   */
 
   /////////////////////////////////////////////////////////////////////////////
@@ -132,6 +128,7 @@ public:
     lambda = (util::dot(-e2,qq))/detA;
 
     return true;
+
   }
 
   /// Bounds the intersection to the triangle

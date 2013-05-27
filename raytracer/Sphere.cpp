@@ -60,4 +60,12 @@ Sphere::closestIntersectionModel(const Ray &ray, real maxLambda) const
     shared_from_this(), ray.pointOnRay(lambda),uvw);
 }
 
+BoundingBox Sphere::computeBoundingBox() const
+{
+  BoundingBox box;
+  box.setMin(Vec3(-1,-1,-1));
+  box.setMax(Vec3(1,1,1));
+  return box;
+}
+
 } //namespace rt

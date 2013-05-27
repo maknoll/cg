@@ -23,6 +23,11 @@ public:
 
   void setNormal(const Vec3 &normal ) { mNormal=normal; mNormal.normalize(); }
 
+protected:
+
+  // Override this method to recompute the bounding box of this object.
+  BoundingBox computeBoundingBox() const override;
+
 private:
   Vec3 mNormal, mTangent, mBitangent;
 };

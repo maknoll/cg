@@ -19,7 +19,7 @@ class Image;
 class Raytracer
 {
 public:
-  Raytracer(size_t maxDepth=0);
+  Raytracer(size_t maxDepth=10);
   virtual ~Raytracer();
 
   /// The scene contains all Renderables, Lights, and a Camera.

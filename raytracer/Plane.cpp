@@ -52,4 +52,14 @@ Plane::closestIntersectionModel(const Ray &ray, real maxLambda) const
     mNormal,uvw);
 }
 
+BoundingBox Plane::computeBoundingBox() const
+{
+  return BoundingBox(Vec3(-std::numeric_limits<real>::infinity(),
+                          -std::numeric_limits<real>::infinity(),
+                          -std::numeric_limits<real>::infinity()),
+                     Vec3( std::numeric_limits<real>::infinity(),
+                           std::numeric_limits<real>::infinity(),
+                           std::numeric_limits<real>::infinity()));
+}
+
 } //namespace rt

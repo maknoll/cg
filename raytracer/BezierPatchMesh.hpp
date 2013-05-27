@@ -48,13 +48,20 @@ public:
    */
   BezierPatchSample sample(real u, real v) const;
 
+protected:
+    // Override this method to recompute the bounding box of this object.
+    BoundingBox computeBoundingBox() const override;
+
 private:
+
+
+  std::pair<Vec3,Vec3> deCasteljau(const std::vector<Vec3> &curvePoints, real t) const;
+  void deCasteljauRec(std::vector<Vec3> &points, real t) const;
 
   size_t mResU, mResV;              //!< triangle resolution in both parameter directions
   size_t mM, mN;                    //!< patch control point dimensions
   std::vector<Vec3> mControlPoints; //!< patch control points
-  Vec3 kabeljau(unsigned long, unsigned long, real, std::vector<Vec3>, std::function<int (unsigned long)>) const;
-  Vec3 tangent(real, std::vector<Vec3>, unsigned long) const;
+
 };
 } //namespace rt
 

@@ -1,5 +1,4 @@
 #include "Scene.hpp"
-#include "Renderable.hpp"
 #include "Camera.hpp"
 #include "Image.hpp"
 #include <algorithm>
@@ -45,6 +44,15 @@ bool Scene::anyIntersection(const Ray &ray, real maxLambda) const
       return true;
   }
   return false;
+}
+
+void Scene::prepareScene()
+{
+  for(size_t i=0;i<mRenderables.size();++i)
+  {
+    mRenderables[i]->updateBoundingBox();
+    mRenderables[i]->initialize();
+  }
 }
 
 }

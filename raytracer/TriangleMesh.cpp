@@ -60,4 +60,17 @@ bool TriangleMesh::anyIntersectionModel(const Ray &ray, real maxLambda) const
   return false;
 }
 
+BoundingBox TriangleMesh::computeBoundingBox() const
+{
+  BoundingBox bbox;
+  for (size_t i=0;i<mTriangles.size();++i)
+  {
+    const TriangleElement& tri = mTriangles[i];
+    bbox.expandByPoint(tri.v0);
+    bbox.expandByPoint(tri.v1);
+    bbox.expandByPoint(tri.v2);
+  }
+  return bbox;
+}
+
 } //namespace rt

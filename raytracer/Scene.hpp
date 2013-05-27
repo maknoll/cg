@@ -5,6 +5,7 @@
 #include <vector>
 
 #include "Math.hpp"
+#include "Renderable.hpp"
 
 namespace rt
 {
@@ -46,8 +47,11 @@ public:
   const Vec4& backgroundColor() const { return mBackgroundColor; }
   std::shared_ptr<Camera> camera()    {return mCamera;}
 
-  void setBackgroundColor(const Vec4& rgba)       { mBackgroundColor = rgba; }
+  void setBackgroundColor(const Vec4& rgba)      { mBackgroundColor = rgba; }
   void setCamera(std::shared_ptr<Camera> camera) {mCamera=camera; }
+
+  //prepare scene for rendering
+  void prepareScene();
 
 private:
   Vec4 mBackgroundColor;

@@ -82,6 +82,11 @@ public:
     mTriangles.push_back(TriangleElement(v0,v1,v2,n0,n1,n2,uvw0,uvw1,uvw2));
   }
 
+protected:
+
+  // Override this method to recompute the bounding box of this object.
+  BoundingBox computeBoundingBox() const override;
+
 private:
   std::vector<TriangleElement> mTriangles;
 

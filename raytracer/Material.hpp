@@ -13,8 +13,8 @@ class Light;
 class Material
 {
 public:
-  Material(const Vec3 &color = Vec3(0.5,0.5,0.5)) :
-    mColor(color) {}
+  Material(const Vec3 &color = Vec3(0.5,0.5,0.5), real reflectance=0.0) :
+    mColor(color), mReflectance(reflectance) {}
 
   virtual ~Material() {}
 
@@ -25,11 +25,14 @@ public:
 
   const Vec3& color() const {return mColor;}
 
+  real reflectance() const { return mReflectance; }
+
   /// Valid RGB color components have range [0,1].
 	void setColor(const Vec3& color) { mColor=color; }
 
 private:
 Vec3 mColor;
+real mReflectance;
 };
 
 }

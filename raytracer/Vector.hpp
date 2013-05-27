@@ -483,17 +483,6 @@ Vector<N,decltype(T1(0)*T2(0))> reflect(const Vector<N,T1> &v0,
   return v0 - 2 * (v1 | v0) * v1;
 }
 
-typedef Vector<2,float> Vec2f;
-typedef Vector<3,float> Vec3f;
-typedef Vector<4,float> Vec4f;
-
-typedef Vector<2,double> Vec2d;
-typedef Vector<3,double> Vec3d;
-typedef Vector<4,double> Vec4d;
-
-typedef Vector<2,int> Vec2i;
-typedef Vector<3,int> Vec3i;
-typedef Vector<4,int> Vec4i;
 
 } //namespace util
 

@@ -23,11 +23,16 @@ Renderable::closestIntersection(const Ray &ray, real maxLambda) const
 {
   //adapt maximal lambda value relative to transformation properties
   //(e.g., scaling)
+  Ray  modelRay       = transformRayWorldToModel(ray);
   maxLambda = transformRayLambdaWorldToModel(ray, maxLambda);
+
+  // early out test - do we hit the bounding box of the object?
+  if (!mBoundingBox.anyIntersection(modelRay, maxLambda))
+    return nullptr;
 
   //transform ray from world to model coordinate system
   std::shared_ptr<RayIntersection> isect_local =
-      this->closestIntersectionModel(transformRayWorldToModel(ray),maxLambda);
+      this->closestIntersectionModel(modelRay,maxLambda);
 
   if (!isect_local)
     return nullptr;
@@ -40,8 +45,13 @@ Renderable::closestIntersection(const Ray &ray, real maxLambda) const
 
 bool Renderable::anyIntersection(const Ray &ray, real maxLambda) const
 {
+  Ray  modelRay       = transformRayWorldToModel(ray);
   maxLambda = transformRayLambdaWorldToModel(ray, maxLambda);
-  return this->anyIntersectionModel(transformRayWorldToModel(ray),maxLambda);
+  // early out test - do we hit the bounding box of the object?
+  if (!mBoundingBox.anyIntersection(modelRay,maxLambda))
+    return false;
+
+  return this->anyIntersectionModel(modelRay,maxLambda);
 }
 
 void Renderable::updateTransforms() const
