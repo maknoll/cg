@@ -36,7 +36,22 @@
 		5B8032FE17170E3D00638E8C /* helloworld.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B8032EC17170DF000638E8C /* helloworld.cpp */; };
 		5B80330C17170E6200638E8C /* hellogl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B8032EF17170E1100638E8C /* hellogl.cpp */; };
 		5B80330E17170E7600638E8C /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B80330D17170E7600638E8C /* OpenGL.framework */; };
-		5B80331017170E7C00638E8C /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B80330F17170E7C00638E8C /* GLUT.framework */; };
+		5B80DD821760B564006A0DD8 /* libGLEW.1.9.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B80DD811760B564006A0DD8 /* libGLEW.1.9.0.dylib */; };
+		5BE44C6A175FC7C4009BB0B4 /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BE44C50175FC7C4009BB0B4 /* Camera.cpp */; };
+		5BE44C6B175FC7C4009BB0B4 /* IndexedTriangleIO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BE44C56175FC7C4009BB0B4 /* IndexedTriangleIO.cpp */; };
+		5BE44C6C175FC7C4009BB0B4 /* ShaderProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BE44C5E175FC7C4009BB0B4 /* ShaderProgram.cpp */; };
+		5BE44C70175FC7C4009BB0B4 /* TriangleGeometry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BE44C64175FC7C4009BB0B4 /* TriangleGeometry.cpp */; };
+		5BE44C71175FC7C4009BB0B4 /* VC-CG_test_opengl_task4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BE44C66175FC7C4009BB0B4 /* VC-CG_test_opengl_task4.cpp */; };
+		5BE44C72175FC903009BB0B4 /* SolidWirePhong.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5BE44C60175FC7C4009BB0B4 /* SolidWirePhong.fs */; };
+		5BE44C73175FC905009BB0B4 /* SolidWirePhong.gs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5BE44C61175FC7C4009BB0B4 /* SolidWirePhong.gs */; };
+		5BE44C74175FC907009BB0B4 /* SolidWirePhong.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5BE44C62175FC7C4009BB0B4 /* SolidWirePhong.vs */; };
+		5BE44C7B175FD1A0009BB0B4 /* arrowZ.obj in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5BE44C4F175FC7C4009BB0B4 /* arrowZ.obj */; };
+		5BE44C7C175FD1A0009BB0B4 /* die.obj in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5BE44C53175FC7C4009BB0B4 /* die.obj */; };
+		5BE44C7D175FD1A0009BB0B4 /* dieDebug.obj in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5BE44C54175FC7C4009BB0B4 /* dieDebug.obj */; };
+		5BE44C7E175FD1A0009BB0B4 /* groundPlane.obj in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5BE44C55175FC7C4009BB0B4 /* groundPlane.obj */; };
+		5BE44C7F175FD1A0009BB0B4 /* lightSphere.obj in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5BE44C58175FC7C4009BB0B4 /* lightSphere.obj */; };
+		5BE44C80175FDBF1009BB0B4 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B80330D17170E7600638E8C /* OpenGL.framework */; };
+		5BE44C82175FDC2A009BB0B4 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BE44C81175FDC2A009BB0B4 /* GLUT.framework */; };
 		5BF59ABD171845A000682E2C /* MemoryFun.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BF59ABA171845A000682E2C /* MemoryFun.cpp */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +91,23 @@
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 1;
+		};
+		5BE44C43175FC795009BB0B4 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				5BE44C7B175FD1A0009BB0B4 /* arrowZ.obj in CopyFiles */,
+				5BE44C7C175FD1A0009BB0B4 /* die.obj in CopyFiles */,
+				5BE44C7D175FD1A0009BB0B4 /* dieDebug.obj in CopyFiles */,
+				5BE44C7E175FD1A0009BB0B4 /* groundPlane.obj in CopyFiles */,
+				5BE44C7F175FD1A0009BB0B4 /* lightSphere.obj in CopyFiles */,
+				5BE44C72175FC903009BB0B4 /* SolidWirePhong.fs in CopyFiles */,
+				5BE44C73175FC905009BB0B4 /* SolidWirePhong.gs in CopyFiles */,
+				5BE44C74175FC907009BB0B4 /* SolidWirePhong.vs in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 		5BF59AAE1718454B00682E2C /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -153,7 +185,36 @@
 		5B8032F517170E2600638E8C /* helloworld */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = helloworld; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B80330317170E5400638E8C /* hellogl */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = hellogl; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B80330D17170E7600638E8C /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
-		5B80330F17170E7C00638E8C /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
+		5B80DD811760B564006A0DD8 /* libGLEW.1.9.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEW.1.9.0.dylib; path = ../../../../usr/local/Cellar/glew/1.9.0/lib/libGLEW.1.9.0.dylib; sourceTree = "<group>"; };
+		5BE44C45175FC795009BB0B4 /* opengl */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = opengl; sourceTree = BUILT_PRODUCTS_DIR; };
+		5BE44C4F175FC7C4009BB0B4 /* arrowZ.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = arrowZ.obj; sourceTree = "<group>"; };
+		5BE44C50175FC7C4009BB0B4 /* Camera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Camera.cpp; sourceTree = "<group>"; };
+		5BE44C51175FC7C4009BB0B4 /* Camera.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Camera.hpp; sourceTree = "<group>"; };
+		5BE44C52175FC7C4009BB0B4 /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
+		5BE44C53175FC7C4009BB0B4 /* die.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = die.obj; sourceTree = "<group>"; };
+		5BE44C54175FC7C4009BB0B4 /* dieDebug.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dieDebug.obj; sourceTree = "<group>"; };
+		5BE44C55175FC7C4009BB0B4 /* groundPlane.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = groundPlane.obj; sourceTree = "<group>"; };
+		5BE44C56175FC7C4009BB0B4 /* IndexedTriangleIO.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IndexedTriangleIO.cpp; sourceTree = "<group>"; };
+		5BE44C57175FC7C4009BB0B4 /* IndexedTriangleIO.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = IndexedTriangleIO.hpp; sourceTree = "<group>"; };
+		5BE44C58175FC7C4009BB0B4 /* lightSphere.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = lightSphere.obj; sourceTree = "<group>"; };
+		5BE44C59175FC7C4009BB0B4 /* Math.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Math.hpp; sourceTree = "<group>"; };
+		5BE44C5A175FC7C4009BB0B4 /* Matrix2.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Matrix2.hpp; sourceTree = "<group>"; };
+		5BE44C5B175FC7C4009BB0B4 /* Matrix3.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Matrix3.hpp; sourceTree = "<group>"; };
+		5BE44C5C175FC7C4009BB0B4 /* Matrix4.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Matrix4.hpp; sourceTree = "<group>"; };
+		5BE44C5D175FC7C4009BB0B4 /* OpenGL.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = OpenGL.hpp; sourceTree = "<group>"; };
+		5BE44C5E175FC7C4009BB0B4 /* ShaderProgram.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShaderProgram.cpp; sourceTree = "<group>"; };
+		5BE44C5F175FC7C4009BB0B4 /* ShaderProgram.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ShaderProgram.hpp; sourceTree = "<group>"; };
+		5BE44C60175FC7C4009BB0B4 /* SolidWirePhong.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = SolidWirePhong.fs; sourceTree = "<group>"; };
+		5BE44C61175FC7C4009BB0B4 /* SolidWirePhong.gs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = SolidWirePhong.gs; sourceTree = "<group>"; };
+		5BE44C62175FC7C4009BB0B4 /* SolidWirePhong.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = SolidWirePhong.vs; sourceTree = "<group>"; };
+		5BE44C63175FC7C4009BB0B4 /* std_types.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = std_types.hpp; sourceTree = "<group>"; };
+		5BE44C64175FC7C4009BB0B4 /* TriangleGeometry.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TriangleGeometry.cpp; sourceTree = "<group>"; };
+		5BE44C65175FC7C4009BB0B4 /* TriangleGeometry.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TriangleGeometry.hpp; sourceTree = "<group>"; };
+		5BE44C66175FC7C4009BB0B4 /* VC-CG_test_opengl_task4.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "VC-CG_test_opengl_task4.cpp"; sourceTree = "<group>"; };
+		5BE44C67175FC7C4009BB0B4 /* Vector2.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Vector2.hpp; sourceTree = "<group>"; };
+		5BE44C68175FC7C4009BB0B4 /* Vector3.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Vector3.hpp; sourceTree = "<group>"; };
+		5BE44C69175FC7C4009BB0B4 /* Vector4.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Vector4.hpp; sourceTree = "<group>"; };
+		5BE44C81175FDC2A009BB0B4 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
 		5BF59AB01718454B00682E2C /* memoryfun */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = memoryfun; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BF59ABA171845A000682E2C /* MemoryFun.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MemoryFun.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -184,8 +245,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B80331017170E7C00638E8C /* GLUT.framework in Frameworks */,
 				5B80330E17170E7600638E8C /* OpenGL.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5BE44C42175FC795009BB0B4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B80DD821760B564006A0DD8 /* libGLEW.1.9.0.dylib in Frameworks */,
+				5BE44C82175FDC2A009BB0B4 /* GLUT.framework in Frameworks */,
+				5BE44C80175FDBF1009BB0B4 /* OpenGL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,14 +343,16 @@
 		5B8032D617170DD600638E8C = {
 			isa = PBXGroup;
 			children = (
+				5BE44C4E175FC7C4009BB0B4 /* opengl */,
 				5B224EAC171FD6C4006BFFE2 /* raytracer */,
 				5B224E9B171FD451006BFFE2 /* examples */,
 				5BF59AB91718458000682E2C /* memoryfun */,
 				5B8032EE17170DFC00638E8C /* hellogl */,
 				5B8032EB17170DDF00638E8C /* helloworld */,
 				5B8032E017170DD600638E8C /* Products */,
+				5B80DD811760B564006A0DD8 /* libGLEW.1.9.0.dylib */,
+				5BE44C81175FDC2A009BB0B4 /* GLUT.framework */,
 				5B80330D17170E7600638E8C /* OpenGL.framework */,
-				5B80330F17170E7C00638E8C /* GLUT.framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -292,6 +364,7 @@
 				5BF59AB01718454B00682E2C /* memoryfun */,
 				5B224E92171FD421006BFFE2 /* example01 */,
 				5B224EA3171FD6AF006BFFE2 /* raytracer */,
+				5BE44C45175FC795009BB0B4 /* opengl */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -310,6 +383,40 @@
 				5B8032EF17170E1100638E8C /* hellogl.cpp */,
 			);
 			path = hellogl;
+			sourceTree = "<group>";
+		};
+		5BE44C4E175FC7C4009BB0B4 /* opengl */ = {
+			isa = PBXGroup;
+			children = (
+				5BE44C4F175FC7C4009BB0B4 /* arrowZ.obj */,
+				5BE44C50175FC7C4009BB0B4 /* Camera.cpp */,
+				5BE44C51175FC7C4009BB0B4 /* Camera.hpp */,
+				5BE44C52175FC7C4009BB0B4 /* CMakeLists.txt */,
+				5BE44C53175FC7C4009BB0B4 /* die.obj */,
+				5BE44C54175FC7C4009BB0B4 /* dieDebug.obj */,
+				5BE44C55175FC7C4009BB0B4 /* groundPlane.obj */,
+				5BE44C56175FC7C4009BB0B4 /* IndexedTriangleIO.cpp */,
+				5BE44C57175FC7C4009BB0B4 /* IndexedTriangleIO.hpp */,
+				5BE44C58175FC7C4009BB0B4 /* lightSphere.obj */,
+				5BE44C59175FC7C4009BB0B4 /* Math.hpp */,
+				5BE44C5A175FC7C4009BB0B4 /* Matrix2.hpp */,
+				5BE44C5B175FC7C4009BB0B4 /* Matrix3.hpp */,
+				5BE44C5C175FC7C4009BB0B4 /* Matrix4.hpp */,
+				5BE44C5D175FC7C4009BB0B4 /* OpenGL.hpp */,
+				5BE44C5E175FC7C4009BB0B4 /* ShaderProgram.cpp */,
+				5BE44C5F175FC7C4009BB0B4 /* ShaderProgram.hpp */,
+				5BE44C60175FC7C4009BB0B4 /* SolidWirePhong.fs */,
+				5BE44C61175FC7C4009BB0B4 /* SolidWirePhong.gs */,
+				5BE44C62175FC7C4009BB0B4 /* SolidWirePhong.vs */,
+				5BE44C63175FC7C4009BB0B4 /* std_types.hpp */,
+				5BE44C64175FC7C4009BB0B4 /* TriangleGeometry.cpp */,
+				5BE44C65175FC7C4009BB0B4 /* TriangleGeometry.hpp */,
+				5BE44C66175FC7C4009BB0B4 /* VC-CG_test_opengl_task4.cpp */,
+				5BE44C67175FC7C4009BB0B4 /* Vector2.hpp */,
+				5BE44C68175FC7C4009BB0B4 /* Vector3.hpp */,
+				5BE44C69175FC7C4009BB0B4 /* Vector4.hpp */,
+			);
+			path = opengl;
 			sourceTree = "<group>";
 		};
 		5BF59AB91718458000682E2C /* memoryfun */ = {
@@ -391,6 +498,23 @@
 			productReference = 5B80330317170E5400638E8C /* hellogl */;
 			productType = "com.apple.product-type.tool";
 		};
+		5BE44C44175FC795009BB0B4 /* opengl */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5BE44C4D175FC795009BB0B4 /* Build configuration list for PBXNativeTarget "opengl" */;
+			buildPhases = (
+				5BE44C41175FC795009BB0B4 /* Sources */,
+				5BE44C42175FC795009BB0B4 /* Frameworks */,
+				5BE44C43175FC795009BB0B4 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = opengl;
+			productName = opengl;
+			productReference = 5BE44C45175FC795009BB0B4 /* opengl */;
+			productType = "com.apple.product-type.tool";
+		};
 		5BF59AAF1718454B00682E2C /* memoryfun */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5BF59AB81718454B00682E2C /* Build configuration list for PBXNativeTarget "memoryfun" */;
@@ -434,6 +558,7 @@
 				5BF59AAF1718454B00682E2C /* memoryfun */,
 				5B224E91171FD421006BFFE2 /* example01 */,
 				5B224EA2171FD6AF006BFFE2 /* raytracer */,
+				5BE44C44175FC795009BB0B4 /* opengl */,
 			);
 		};
 /* End PBXProject section */
@@ -491,6 +616,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B80330C17170E6200638E8C /* hellogl.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5BE44C41175FC795009BB0B4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5BE44C6A175FC7C4009BB0B4 /* Camera.cpp in Sources */,
+				5BE44C6B175FC7C4009BB0B4 /* IndexedTriangleIO.cpp in Sources */,
+				5BE44C6C175FC7C4009BB0B4 /* ShaderProgram.cpp in Sources */,
+				5BE44C70175FC7C4009BB0B4 /* TriangleGeometry.cpp in Sources */,
+				5BE44C71175FC7C4009BB0B4 /* VC-CG_test_opengl_task4.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -621,6 +758,40 @@
 			};
 			name = Release;
 		};
+		5BE44C4B175FC795009BB0B4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					/opt/X11/include,
+					/usr/local/include,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					/opt/X11/lib,
+					/usr/local/lib,
+					/usr/local/Cellar/glew/1.9.0/lib,
+				);
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		5BE44C4C175FC795009BB0B4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					/opt/X11/include,
+					/usr/local/include,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					/opt/X11/lib,
+					/usr/local/lib,
+					/usr/local/Cellar/glew/1.9.0/lib,
+				);
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		5BF59AB61718454B00682E2C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -679,6 +850,15 @@
 			buildConfigurations = (
 				5B80330A17170E5400638E8C /* Debug */,
 				5B80330B17170E5400638E8C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5BE44C4D175FC795009BB0B4 /* Build configuration list for PBXNativeTarget "opengl" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5BE44C4B175FC795009BB0B4 /* Debug */,
+				5BE44C4C175FC795009BB0B4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
