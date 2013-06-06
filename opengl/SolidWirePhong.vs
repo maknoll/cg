@@ -1,4 +1,5 @@
 #version 330 core
+#extension GL_ARB_explicit_attrib_location : enable
 
 layout(std140) uniform ub_Camera
 {
@@ -18,8 +19,8 @@ layout(std140) uniform ub_Geometry
   vec4 lightPositions[3];
 } Geometry;
 
-in layout(location = 0) vec3 position;
-in layout(location = 1) vec3 normal;
+layout(location = 0) in vec3 position;
+layout(location = 1) in vec3 normal;
 
 out vec4 vPosition;
 out vec3 vWorldPosition;

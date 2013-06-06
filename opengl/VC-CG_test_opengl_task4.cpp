@@ -433,13 +433,13 @@ int main (int argc, char** argv)
   std::cerr<<"Alternatively you can set the global variable gDataPath to this path.\n"<<std::endl;
 
   // Initialize an OpenGL core profile context with version 3.3
-  glutInitContextVersion(3,3);
-  glutInitContextFlags(GLUT_DEBUG); //GLUT_DEBUG, GLUT_FORWARD_COMPATIBLE
-  glutInitContextProfile(GLUT_CORE_PROFILE); //GLUT_CORE_PROFILE, GLUT_COMPATIBILITY_PROFILE
+//  glutInitContextVersion(3,2);
+//  glutInitContextFlags(GLUT_DEBUG); //GLUT_DEBUG, GLUT_FORWARD_COMPATIBLE
+//  glutInitContextProfile(GLUT_3_2_CORE_PROFILE); //GLUT_CORE_PROFILE, GLUT_COMPATIBILITY_PROFILE
 
   // Initialize GLUT and create titled window
   glutInit              (&argc, argv);
-  glutInitDisplayMode   (GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH | GLUT_MULTISAMPLE);
+  glutInitDisplayMode   (GLUT_3_2_CORE_PROFILE | GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH | GLUT_MULTISAMPLE);
   glutInitWindowSize    (gWidth,gHeight);
   glutInitWindowPosition(100,100);
   glutCreateWindow      ("Task4: Transformations");
@@ -460,7 +460,7 @@ int main (int argc, char** argv)
   glutReshapeFunc(resizeCB);
   glutMotionFunc(motionCB);
   glutMouseFunc(mouseCB);
-  glutMouseWheelFunc(wheelCB);
+//  glutMouseWheelFunc(wheelCB);
 
   // Perform our initialization (OpenGL states, shader, camera, geometry)
   if(!init())

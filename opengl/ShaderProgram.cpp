@@ -10,7 +10,7 @@ ShaderProgram::ShaderProgram(const std::string &file_vs,
 {
   // Load and compile the shader code
   GLuint vertexShader = this->createShader(GL_VERTEX_SHADER,file_vs);
-  GLuint geometryShader = this->createShader(GL_GEOMETRY_SHADER,file_gs);
+  GLuint geometryShader = this->createShader(GL_GEOMETRY_SHADER_EXT,file_gs);
   GLuint fragmentShader = this->createShader(GL_FRAGMENT_SHADER,file_fs);
 
   // Create a shader program
