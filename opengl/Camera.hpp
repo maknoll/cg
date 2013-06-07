@@ -47,10 +47,10 @@ public:
   void mouseMoved(int x, int y);
 
   // Called when pressing or releasing a mouse button
-  void mouseButtonPressed(int button, int state, int x, int y);
+  void mouseButtonPressed(int button, int state);
 
   // Called when using the mouse wheel for zooming
-  void mouseWheelScrolled(int wheel, int direction, int x, int y);
+  void mouseWheelScrolled(int direction);
 
   // Uploads the projection matrix, the view matrix and the world camera position to the GPU
   void updateUniforms();

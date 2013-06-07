@@ -2,7 +2,7 @@
 #define OPENGL_HEADER_INCLUDE_ONCE
 
 #include <GL/glew.h>
-#include <GLUT/GLUT.h>
+#include <GL/glfw.h>
 #include <iostream>
 #include <string>
 #include "Math.hpp"

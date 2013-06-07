@@ -10,7 +10,11 @@ ShaderProgram::ShaderProgram(const std::string &file_vs,
 {
   // Load and compile the shader code
   GLuint vertexShader = this->createShader(GL_VERTEX_SHADER,file_vs);
+#ifdef __APPLE__
   GLuint geometryShader = this->createShader(GL_GEOMETRY_SHADER_EXT,file_gs);
+#else
+  GLuint geometryShader = this->createShader(GL_GEOMETRY_SHADER,file_gs);
+#endif
   GLuint fragmentShader = this->createShader(GL_FRAGMENT_SHADER,file_fs);
 
   // Create a shader program

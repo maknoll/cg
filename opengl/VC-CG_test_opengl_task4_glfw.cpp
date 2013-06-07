@@ -19,7 +19,7 @@ std::shared_ptr<ogl::TriangleGeometry> gLightSphere[3];    ///< Three point ligh
 std::shared_ptr<ogl::TriangleGeometry> gGroundPlane;       ///< The ground plane
 std::shared_ptr<ogl::TriangleGeometry> gAxisArrows[3];     ///< XYZ (RGB) coordinate widget
 float gLastFrameTime=0.f;                                  ///< rendering time of last frame in seconds
-
+int oldWheelDirection=0;
 
 // Display the dice
 void displayDice()
@@ -126,7 +126,7 @@ void displayLightSpheres()
 void displayCB()
 {
   // Get the current time (in milliseconds since program start)
-  int t0 =glutGet(GLUT_ELAPSED_TIME);
+  double t0 =glfwGetTime();
 
   // Clear frame and depth buffers
   glClearColor(gBackgroundColor[0],gBackgroundColor[1],gBackgroundColor[2], 1.f);
@@ -154,17 +154,14 @@ void displayCB()
   glUseProgram(0);
 
   // Swap the rendering target with the frame buffer shown on the monitor
-  glutSwapBuffers();
+  glfwSwapBuffers();
 
   // Hopefully there hasn't been any mistake?
   ogl::printOpenGLError();
 
   // Compute rendering time in seconds by taking difference to current time
-  int t1=glutGet(GLUT_ELAPSED_TIME);
-  gLastFrameTime = (t1-t0)/1000.f;
-
-  // Request a redraw to continuously call the display() function
-  glutPostRedisplay();
+  double t1=glfwGetTime();
+  gLastFrameTime = float(t1-t0);
 }
 
 // Initialize the dice geometry
@@ -235,7 +232,6 @@ bool initDice()
 
   //gDice[4] should be the cube with number 5 facing the camera
   gDice[4]->modelMatrix().translate(3,3,4);
-
 
   // Hint for gDice[5] that stands on the tip showing number 6
   // the rotation that is performed on this die is equivalent to the rotation
@@ -393,28 +389,27 @@ bool init()
 void resizeCB(int width, int height)
 {
   gCamera->resize(width,height);
-  glutPostRedisplay();
 }
 
 // This callback is called when moving the mouse while a button is pressed
 void motionCB(int x, int y)
 {
   gCamera->mouseMoved(x,y);
-  glutPostRedisplay();
 }
 
 // This callback is called when a mouse button is pressed or released
-void mouseCB(int button, int state, int x, int y)
+void mouseCB(int button, int state)
 {
-  gCamera->mouseButtonPressed(button,state,x,y);
-  glutPostRedisplay();
+  gCamera->mouseButtonPressed(button,state);
 }
 
 // This callback is called when the scroll wheel is used
-void wheelCB(int wheel, int direction, int x, int y)
+void wheelCB(int direction)
 {
-  gCamera->mouseWheelScrolled(wheel,direction,x,y);
-  glutPostRedisplay();
+  int diff = direction-oldWheelDirection;
+  diff = std::max(-1,std::min(1,diff));
+  gCamera->mouseWheelScrolled(diff);
+  oldWheelDirection=direction;
 }
 
 
@@ -432,19 +427,31 @@ int main (int argc, char** argv)
     "Set this path to the absolute source path. E.g. D:/CG/SS13/programming/src/opengl_task4. ";
   std::cerr<<"Alternatively you can set the global variable gDataPath to this path.\n"<<std::endl;
 
-  // Initialize an OpenGL core profile context with version 3.3
-//  glutInitContextVersion(3,2);
-//  glutInitContextFlags(GLUT_DEBUG); //GLUT_DEBUG, GLUT_FORWARD_COMPATIBLE
-//  glutInitContextProfile(GLUT_3_2_CORE_PROFILE); //GLUT_CORE_PROFILE, GLUT_COMPATIBILITY_PROFILE
+  if( !glfwInit() )
+  {
+    fprintf( stderr, "Failed to initialize GLFW\n" );
+    exit( EXIT_FAILURE );
+  }
 
-  // Initialize GLUT and create titled window
-  glutInit              (&argc, argv);
-  glutInitDisplayMode   (GLUT_3_2_CORE_PROFILE | GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH | GLUT_MULTISAMPLE);
-  glutInitWindowSize    (gWidth,gHeight);
-  glutInitWindowPosition(100,100);
-  glutCreateWindow      ("Task4: Transformations");
+  // Create the OpenGL window
+  glfwOpenWindowHint(GLFW_FSAA_SAMPLES, 4); // 4x AA
+  glfwOpenWindowHint(GLFW_OPENGL_VERSION_MAJOR, 3);
+  glfwOpenWindowHint(GLFW_OPENGL_VERSION_MINOR, 2);
+  glfwOpenWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
+  // Open OpenGL fullscreen window
+  if( !glfwOpenWindow( gWidth, gHeight, 0,0,0,0, 16,0, GLFW_WINDOW ) )
+  {
+    fprintf( stderr, "Failed to open GLFW window\n" );
+    glfwTerminate();
+    exit( EXIT_FAILURE );
+  }
 
+  // Set window title
+  glfwSetWindowTitle( "Task4: Transformations" );
+
+  // Disable VSync (we want to get as high FPS as possible!)
+  glfwSwapInterval( 0 );
 
   // Setting this is necessary for core profile (tested with MSVC 2013 x64, Windows 7)
   glewExperimental = GL_TRUE;
@@ -455,39 +462,28 @@ int main (int argc, char** argv)
   // Print OpenGL context information to console
   ogl::printContextInformation();
 
-  // Set the appropriate callback functions
-  glutDisplayFunc       (displayCB);
-  glutReshapeFunc(resizeCB);
-  glutMotionFunc(motionCB);
-  glutMouseFunc(mouseCB);
-//  glutMouseWheelFunc(wheelCB);
-
   // Perform our initialization (OpenGL states, shader, camera, geometry)
   if(!init())
     return -1;
 
-  // Hopefully, nothing went wrong?
-  ogl::printOpenGLError();
 
-  // Enter the GLUT main loop
-  // This can be conceptually thought of such a loop that is never
-  // left while the program is running
-  // enter GLUT main loop
-  // while (true)
-  // {
-  //   determine whether any keyboard key has been pressed
-  //   call keyboard callbacks
-  //
-  //   determine whether mouse has been used (state changed)
-  //   call mouse callbacks
-  //
-  //
-  //   idle or call the display function
-  //
-  // }
-  // exit GLUT main loop and return to main-function
-  glutMainLoop();
+  // Window resize callback function
+  glfwSetWindowSizeCallback(resizeCB);
+  glfwSetMousePosCallback(motionCB);
+  glfwSetMouseButtonCallback(mouseCB);
+  glfwSetMouseWheelCallback(wheelCB);
 
-  //The loop exited, end the program.
-  return 0;
+
+  bool running=true;
+  while( running )
+  {
+    // Draw...
+    displayCB();
+
+    // Check if window was closed
+    running = running && glfwGetWindowParam( GLFW_OPENED );
+  }
+
+  // Terminate OpenGL
+  glfwTerminate();
 }

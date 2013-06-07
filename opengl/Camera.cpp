@@ -114,34 +114,30 @@ void Camera::mouseMoved(int x, int y)
   mOldMousePosition[1]=y;
 }
 
-void Camera::mouseButtonPressed(int button, int state, int x, int y)
+void Camera::mouseButtonPressed(int button, int state)
 {
-  // Store new mouse position
-  mOldMousePosition[0]=x;
-  mOldMousePosition[1]=y;
-
   // If left mouse button is pressed -> activate rotation
   // If left mouse button is released -> deactivate rotation
-  if(button == GLUT_LEFT_BUTTON)
+  if(button == GLFW_MOUSE_BUTTON_LEFT)
   {
-    if(state==GLUT_DOWN) //button pressed
+    if(state==GLFW_PRESS) //button pressed
       mRotationActive=true;
-    else if(state==GLUT_UP) //button released
+    else if(state==GLFW_RELEASE) //button released
       mRotationActive=false;
   }
 
   // If left mouse button is pressed -> activate panning
   // If left mouse button is released -> deactivate panning
-  else if (button == GLUT_MIDDLE_BUTTON)
+  else if (button == GLFW_MOUSE_BUTTON_MIDDLE)
   {
-    if(state == GLUT_DOWN)
+    if(state == GLFW_PRESS)
       mPanningActive=true;
-    else if(state==GLUT_UP)
+    else if(state==GLFW_RELEASE)
       mPanningActive=false;
   }
 }
 
-void Camera::mouseWheelScrolled(int wheel, int direction, int x, int y)
+void Camera::mouseWheelScrolled( int direction)
 {
   float scaleSpeed = -0.15f;
   Mat4 M;

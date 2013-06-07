@@ -41,7 +41,6 @@
 		5BE44C6B175FC7C4009BB0B4 /* IndexedTriangleIO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BE44C56175FC7C4009BB0B4 /* IndexedTriangleIO.cpp */; };
 		5BE44C6C175FC7C4009BB0B4 /* ShaderProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BE44C5E175FC7C4009BB0B4 /* ShaderProgram.cpp */; };
 		5BE44C70175FC7C4009BB0B4 /* TriangleGeometry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BE44C64175FC7C4009BB0B4 /* TriangleGeometry.cpp */; };
-		5BE44C71175FC7C4009BB0B4 /* VC-CG_test_opengl_task4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BE44C66175FC7C4009BB0B4 /* VC-CG_test_opengl_task4.cpp */; };
 		5BE44C72175FC903009BB0B4 /* SolidWirePhong.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5BE44C60175FC7C4009BB0B4 /* SolidWirePhong.fs */; };
 		5BE44C73175FC905009BB0B4 /* SolidWirePhong.gs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5BE44C61175FC7C4009BB0B4 /* SolidWirePhong.gs */; };
 		5BE44C74175FC907009BB0B4 /* SolidWirePhong.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5BE44C62175FC7C4009BB0B4 /* SolidWirePhong.vs */; };
@@ -53,6 +52,8 @@
 		5BE44C80175FDBF1009BB0B4 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B80330D17170E7600638E8C /* OpenGL.framework */; };
 		5BE44C82175FDC2A009BB0B4 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BE44C81175FDC2A009BB0B4 /* GLUT.framework */; };
 		5BF59ABD171845A000682E2C /* MemoryFun.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BF59ABA171845A000682E2C /* MemoryFun.cpp */; };
+		5BF996EB1761E1CA0077EE98 /* VC-CG_test_opengl_task4_glfw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BF996EA1761E1CA0077EE98 /* VC-CG_test_opengl_task4_glfw.cpp */; };
+		5BF996ED1761E2280077EE98 /* libglfw.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BF996EC1761E2280077EE98 /* libglfw.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -190,7 +191,6 @@
 		5BE44C4F175FC7C4009BB0B4 /* arrowZ.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = arrowZ.obj; sourceTree = "<group>"; };
 		5BE44C50175FC7C4009BB0B4 /* Camera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Camera.cpp; sourceTree = "<group>"; };
 		5BE44C51175FC7C4009BB0B4 /* Camera.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Camera.hpp; sourceTree = "<group>"; };
-		5BE44C52175FC7C4009BB0B4 /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
 		5BE44C53175FC7C4009BB0B4 /* die.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = die.obj; sourceTree = "<group>"; };
 		5BE44C54175FC7C4009BB0B4 /* dieDebug.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dieDebug.obj; sourceTree = "<group>"; };
 		5BE44C55175FC7C4009BB0B4 /* groundPlane.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = groundPlane.obj; sourceTree = "<group>"; };
@@ -210,13 +210,14 @@
 		5BE44C63175FC7C4009BB0B4 /* std_types.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = std_types.hpp; sourceTree = "<group>"; };
 		5BE44C64175FC7C4009BB0B4 /* TriangleGeometry.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TriangleGeometry.cpp; sourceTree = "<group>"; };
 		5BE44C65175FC7C4009BB0B4 /* TriangleGeometry.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TriangleGeometry.hpp; sourceTree = "<group>"; };
-		5BE44C66175FC7C4009BB0B4 /* VC-CG_test_opengl_task4.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "VC-CG_test_opengl_task4.cpp"; sourceTree = "<group>"; };
 		5BE44C67175FC7C4009BB0B4 /* Vector2.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Vector2.hpp; sourceTree = "<group>"; };
 		5BE44C68175FC7C4009BB0B4 /* Vector3.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Vector3.hpp; sourceTree = "<group>"; };
 		5BE44C69175FC7C4009BB0B4 /* Vector4.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Vector4.hpp; sourceTree = "<group>"; };
 		5BE44C81175FDC2A009BB0B4 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
 		5BF59AB01718454B00682E2C /* memoryfun */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = memoryfun; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BF59ABA171845A000682E2C /* MemoryFun.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MemoryFun.cpp; sourceTree = "<group>"; };
+		5BF996EA1761E1CA0077EE98 /* VC-CG_test_opengl_task4_glfw.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "VC-CG_test_opengl_task4_glfw.cpp"; sourceTree = "<group>"; };
+		5BF996EC1761E2280077EE98 /* libglfw.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.dylib; path = ../../../../usr/local/Cellar/glfw/2.7.8/lib/libglfw.dylib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -253,6 +254,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BF996ED1761E2280077EE98 /* libglfw.dylib in Frameworks */,
 				5B80DD821760B564006A0DD8 /* libGLEW.1.9.0.dylib in Frameworks */,
 				5BE44C82175FDC2A009BB0B4 /* GLUT.framework in Frameworks */,
 				5BE44C80175FDBF1009BB0B4 /* OpenGL.framework in Frameworks */,
@@ -350,6 +352,7 @@
 				5B8032EE17170DFC00638E8C /* hellogl */,
 				5B8032EB17170DDF00638E8C /* helloworld */,
 				5B8032E017170DD600638E8C /* Products */,
+				5BF996EC1761E2280077EE98 /* libglfw.dylib */,
 				5B80DD811760B564006A0DD8 /* libGLEW.1.9.0.dylib */,
 				5BE44C81175FDC2A009BB0B4 /* GLUT.framework */,
 				5B80330D17170E7600638E8C /* OpenGL.framework */,
@@ -388,10 +391,10 @@
 		5BE44C4E175FC7C4009BB0B4 /* opengl */ = {
 			isa = PBXGroup;
 			children = (
+				5BF996EA1761E1CA0077EE98 /* VC-CG_test_opengl_task4_glfw.cpp */,
 				5BE44C4F175FC7C4009BB0B4 /* arrowZ.obj */,
 				5BE44C50175FC7C4009BB0B4 /* Camera.cpp */,
 				5BE44C51175FC7C4009BB0B4 /* Camera.hpp */,
-				5BE44C52175FC7C4009BB0B4 /* CMakeLists.txt */,
 				5BE44C53175FC7C4009BB0B4 /* die.obj */,
 				5BE44C54175FC7C4009BB0B4 /* dieDebug.obj */,
 				5BE44C55175FC7C4009BB0B4 /* groundPlane.obj */,
@@ -411,7 +414,6 @@
 				5BE44C63175FC7C4009BB0B4 /* std_types.hpp */,
 				5BE44C64175FC7C4009BB0B4 /* TriangleGeometry.cpp */,
 				5BE44C65175FC7C4009BB0B4 /* TriangleGeometry.hpp */,
-				5BE44C66175FC7C4009BB0B4 /* VC-CG_test_opengl_task4.cpp */,
 				5BE44C67175FC7C4009BB0B4 /* Vector2.hpp */,
 				5BE44C68175FC7C4009BB0B4 /* Vector3.hpp */,
 				5BE44C69175FC7C4009BB0B4 /* Vector4.hpp */,
@@ -627,7 +629,7 @@
 				5BE44C6B175FC7C4009BB0B4 /* IndexedTriangleIO.cpp in Sources */,
 				5BE44C6C175FC7C4009BB0B4 /* ShaderProgram.cpp in Sources */,
 				5BE44C70175FC7C4009BB0B4 /* TriangleGeometry.cpp in Sources */,
-				5BE44C71175FC7C4009BB0B4 /* VC-CG_test_opengl_task4.cpp in Sources */,
+				5BF996EB1761E1CA0077EE98 /* VC-CG_test_opengl_task4_glfw.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -761,14 +763,10 @@
 		5BE44C4B175FC795009BB0B4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				HEADER_SEARCH_PATHS = (
-					/opt/X11/include,
-					/usr/local/include,
-				);
+				HEADER_SEARCH_PATHS = /usr/local/include;
 				LIBRARY_SEARCH_PATHS = (
-					/opt/X11/lib,
 					/usr/local/lib,
-					/usr/local/Cellar/glew/1.9.0/lib,
+					/usr/local/Cellar/glfw/2.7.8/lib,
 				);
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -778,14 +776,10 @@
 		5BE44C4C175FC795009BB0B4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				HEADER_SEARCH_PATHS = (
-					/opt/X11/include,
-					/usr/local/include,
-				);
+				HEADER_SEARCH_PATHS = /usr/local/include;
 				LIBRARY_SEARCH_PATHS = (
-					/opt/X11/lib,
 					/usr/local/lib,
-					/usr/local/Cellar/glew/1.9.0/lib,
+					/usr/local/Cellar/glfw/2.7.8/lib,
 				);
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
