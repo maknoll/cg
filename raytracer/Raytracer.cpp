@@ -47,7 +47,7 @@ void Raytracer::renderToImage(std::shared_ptr<Image> image) const
 Vec4 Raytracer::trace(const Ray &ray, size_t depth) const
 {
   std::shared_ptr<RayIntersection> intersection;
-  if (intersection = mScene->closestIntersection(ray))
+  if ((intersection = mScene->closestIntersection(ray)))
     return this->shade(intersection, depth);
 
   return mScene->backgroundColor();

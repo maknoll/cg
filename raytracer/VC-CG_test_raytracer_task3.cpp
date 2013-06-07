@@ -276,7 +276,7 @@ std::shared_ptr<rt::Scene> makeTask3Scene()
 std::shared_ptr<rt::Scene> makeMeshScene(std::string fileName)
 {
   std::shared_ptr<rt::Camera>   camera    = std::make_shared<rt::PerspectiveCamera>();
-  camera->setPosition(rt::Vec3(5.0,5.0,5.0));
+  camera->setPosition(rt::Vec3(5.0,0.0,5.0));
   camera->setFOV(60.0,60.0);
 
   std::shared_ptr<rt::Scene>    scene     = std::make_shared<rt::Scene>();
@@ -331,7 +331,7 @@ int main()
   std::shared_ptr<rt::Scene> scene = makeTask3Scene(); //task3 with four spheres
 
   //Your triangle mesh in OBJ format should be oriented around the origin, with side lengths ~= 2 units
-  //std::shared_ptr<rt::Scene> scene = makeMeshScene("rubberduck.obj");
+//  std::shared_ptr<rt::Scene> scene = makeMeshScene("smooth_rubberduck.obj");
 
   std::shared_ptr<rt::Raytracer> raytracer = std::make_shared<rt::Raytracer>();
   raytracer->setScene(scene);
