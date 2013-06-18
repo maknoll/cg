@@ -219,7 +219,7 @@ bool initDice()
   //TODO: Replace these simple transformations
 
   //gDice[0] should be the large cube with number 1 facing the camera
-  gDice[0]->modelMatrix().translate(3,3,0);
+  gDice[0]->modelMatrix().scale(2.f, 2.f, 2.f).rotate(90, ogl::Vec3(0,-1,0)).translate(3,3,0);
 
   //gDice[1] should be the cube with number 2 facing the camera
   gDice[1]->modelMatrix().translate(3,3,1);
