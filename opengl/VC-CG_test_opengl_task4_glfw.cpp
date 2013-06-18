@@ -219,19 +219,19 @@ bool initDice()
   //TODO: Replace these simple transformations
 
   //gDice[0] should be the large cube with number 1 facing the camera
-  gDice[0]->modelMatrix().scale(2.f, 2.f, 2.f).rotate(90, ogl::Vec3(0,-1,0)).translate(3,3,0);
+  gDice[0]->modelMatrix().rotate(90, ogl::Vec3(0,-1,0)).scale(2.f, 2.f, 2.f).translate(4,3,1);
 
   //gDice[1] should be the cube with number 2 facing the camera
-  gDice[1]->modelMatrix().translate(3,3,1);
+  gDice[1]->modelMatrix().rotate(90, ogl::Vec3(0,0,1)).translate(2.5,2.5,2);
 
   //gDice[2] should be the cube with number 3 facing the camera
-  gDice[2]->modelMatrix().translate(3,3,2);
+  gDice[2]->modelMatrix().rotate(180, ogl::Vec3(0,0,1)).translate(2.5,3.5,2);
 
   //gDice[3] should be the cube with number 4 facing the camera
-  gDice[3]->modelMatrix().translate(3,3,3);
+  gDice[3]->modelMatrix().rotate(90, ogl::Vec3(0,0,-1)).translate(2.5,3.5,3);
 
   //gDice[4] should be the cube with number 5 facing the camera
-  gDice[4]->modelMatrix().translate(3,3,4);
+  gDice[4]->modelMatrix().translate(2.5,2.5,3);
 
   // Hint for gDice[5] that stands on the tip showing number 6
   // the rotation that is performed on this die is equivalent to the rotation
@@ -239,7 +239,8 @@ bool initDice()
   // It is helpful to compute this transformation on a sheet of paper.
 
   //gDice[5] should be the cube with number 6 facing the camera
-  gDice[5]->modelMatrix().translate(3,3,5);
+//  gDice[5]->modelMatrix().translate(0.5,0.5,0);//.translate(3,3,5);
+  gDice[5]->modelMatrix().translate(0, 0, -0.5).rotate(45, ogl::Vec3(0,1,0)).rotate(34.6, ogl::Vec3(-1,0,0)).translate(2.5,3,4.85);
 
   return true;
 }
