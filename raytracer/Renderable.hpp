@@ -11,6 +11,7 @@ namespace rt
 class Material;
 class Ray;
 class RayIntersection;
+class Image;
 
 /// Abstract class for visible geometry.
 class Renderable : public std::enable_shared_from_this<Renderable>
@@ -38,8 +39,11 @@ public:
 
   // Gets the material.
   std::shared_ptr<const Material> material() const { return mMaterial; }
+  std::shared_ptr<const Image> texture() const { return mTexture; }
   // Sets the material.
   void setMaterial(std::shared_ptr<Material> material) { mMaterial = material; }
+  void setTexture(std::shared_ptr<Image> texture) { mTexture = texture; mHasTexture = true; }
+  bool hasTexture() const { return mHasTexture; }
 
   // Recomputes the bounding box.
   void updateBoundingBox() { mBoundingBox = this->computeBoundingBox();}
@@ -68,6 +72,7 @@ protected:
 private:
   Mat4 mTransform;
   std::shared_ptr<Material> mMaterial;
+  std::shared_ptr<Image> mTexture;
 
   mutable bool mTransformClean;
   mutable Mat4 mTransformInv, mTransformInvTransp;
@@ -75,6 +80,7 @@ private:
   Ray  transformRayWorldToModel(const Ray &ray) const;
   real transformRayLambdaWorldToModel(const Ray &ray, const real lambda) const;
   BoundingBox mBoundingBox;
+  bool mHasTexture;
 };
 
 } //namespace rt

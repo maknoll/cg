@@ -18,7 +18,7 @@ public:
   void build(const std::vector<Vec3> &vertexPositions,const std::vector<Vec3i> &triangleIndices);
 
   //returns a set of triangle indices as candidates for ray-triangle intersection
-  const std::vector<int>& intersectBoundingBoxes(const Ray &ray, const real maxLambda) const;
+  const std::vector<int> intersectBoundingBoxes(const Ray &ray, const real maxLambda) const;
 private:
 
   struct Node
@@ -45,8 +45,6 @@ private:
   std::vector<Vec3i>       mTempBufferTriangleIndices;
   std::vector<Vec3>        mTempAreasLeft;
   std::vector<Vec3>        mTempAreasRight;
-  mutable std::vector<int>         mTempCandidates;
-  mutable std::stack<int>          mTempTraversalJobs;
 
 };
 }

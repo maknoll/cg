@@ -37,6 +37,7 @@
 		5B80330C17170E6200638E8C /* hellogl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B8032EF17170E1100638E8C /* hellogl.cpp */; };
 		5B80330E17170E7600638E8C /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B80330D17170E7600638E8C /* OpenGL.framework */; };
 		5B80DD821760B564006A0DD8 /* libGLEW.1.9.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B80DD811760B564006A0DD8 /* libGLEW.1.9.0.dylib */; };
+		5B9C72CB1785F6D0007BAA49 /* TextureMaterial.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B9C72C91785F6CF007BAA49 /* TextureMaterial.cpp */; };
 		5BE44C6A175FC7C4009BB0B4 /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BE44C50175FC7C4009BB0B4 /* Camera.cpp */; };
 		5BE44C6B175FC7C4009BB0B4 /* IndexedTriangleIO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BE44C56175FC7C4009BB0B4 /* IndexedTriangleIO.cpp */; };
 		5BE44C6C175FC7C4009BB0B4 /* ShaderProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BE44C5E175FC7C4009BB0B4 /* ShaderProgram.cpp */; };
@@ -186,6 +187,10 @@
 		5B80330317170E5400638E8C /* hellogl */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = hellogl; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B80330D17170E7600638E8C /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		5B80DD811760B564006A0DD8 /* libGLEW.1.9.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEW.1.9.0.dylib; path = ../../../../usr/local/Cellar/glew/1.9.0/lib/libGLEW.1.9.0.dylib; sourceTree = "<group>"; };
+		5B9C72C91785F6CF007BAA49 /* TextureMaterial.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TextureMaterial.cpp; sourceTree = "<group>"; };
+		5B9C72CA1785F6CF007BAA49 /* TextureMaterial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureMaterial.h; sourceTree = "<group>"; };
+		5BAA197D1782F50200BA1320 /* bunny.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bunny.obj; sourceTree = "<group>"; };
+		5BAA19831783495600BA1320 /* movie.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = movie.mp4; sourceTree = "<group>"; };
 		5BE44C45175FC795009BB0B4 /* opengl */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = opengl; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BE44C4F175FC7C4009BB0B4 /* arrowZ.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = arrowZ.obj; sourceTree = "<group>"; };
 		5BE44C50175FC7C4009BB0B4 /* Camera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Camera.cpp; sourceTree = "<group>"; };
@@ -279,7 +284,10 @@
 		5B224EAC171FD6C4006BFFE2 /* raytracer */ = {
 			isa = PBXGroup;
 			children = (
+				5BAA19831783495600BA1320 /* movie.mp4 */,
 				5B580645174E4FBB008A3AB9 /* VC-CG_test_raytracer_task3.tga */,
+				5B58F816174E4EE3008A3AB9 /* VC-CG_test_raytracer_task3.cpp */,
+				5BAA197D1782F50200BA1320 /* bunny.obj */,
 				5B58F80A174E4EE3008A3AB9 /* BoundingBox.cpp */,
 				5B58F80B174E4EE3008A3AB9 /* BoundingBox.hpp */,
 				5B58F80C174E4EE3008A3AB9 /* BVHIndexedTriangleMesh.cpp */,
@@ -292,7 +300,6 @@
 				5B58F813174E4EE3008A3AB9 /* IndexedTriangleMesh.hpp */,
 				5B58F814174E4EE3008A3AB9 /* PhongMaterial.cpp */,
 				5B58F815174E4EE3008A3AB9 /* PhongMaterial.hpp */,
-				5B58F816174E4EE3008A3AB9 /* VC-CG_test_raytracer_task3.cpp */,
 				5B224ED9171FDDD5006BFFE2 /* VC-CG_test_raytracer_task2.tga */,
 				5B3A654A1732A10100FD1E12 /* BezierPatchMesh.cpp */,
 				5B3A654B1732A10100FD1E12 /* BezierPatchMesh.hpp */,
@@ -335,6 +342,8 @@
 				5B224EC6171FD745006BFFE2 /* Triangle.hpp */,
 				5B224EC7171FD745006BFFE2 /* VC-CG_test_raytracer_task1.cpp */,
 				5B224EC8171FD745006BFFE2 /* Vector.hpp */,
+				5B9C72C91785F6CF007BAA49 /* TextureMaterial.cpp */,
+				5B9C72CA1785F6CF007BAA49 /* TextureMaterial.h */,
 			);
 			path = raytracer;
 			sourceTree = "<group>";
@@ -597,6 +606,7 @@
 				5B58F81B174E4EE3008A3AB9 /* IndexedTriangleMesh.cpp in Sources */,
 				5B58F81C174E4EE3008A3AB9 /* PhongMaterial.cpp in Sources */,
 				5B58F81D174E4EE3008A3AB9 /* VC-CG_test_raytracer_task3.cpp in Sources */,
+				5B9C72CB1785F6D0007BAA49 /* TextureMaterial.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -658,6 +668,11 @@
 		5B224EA9171FD6AF006BFFE2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_UNROLL_LOOPS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				LLVM_LTO = YES;
+				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -665,6 +680,12 @@
 		5B224EAA171FD6AF006BFFE2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_UNROLL_LOOPS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				LLVM_LTO = YES;
+				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

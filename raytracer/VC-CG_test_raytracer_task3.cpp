@@ -5,10 +5,13 @@
 #include "Raytracer.hpp"
 #include "Light.hpp"
 #include "DiffuseMaterial.hpp"
+#include "TextureMaterial.h"
 #include "Plane.hpp"
 #include "Math.hpp"
 #include "Triangle.hpp"
 #include "Timer.hpp"
+#include <sstream>
+#include <iomanip>
 
 #include "BezierPatchMesh.hpp"
 #include "CheckerMaterial.hpp"
@@ -275,9 +278,6 @@ std::shared_ptr<rt::Scene> makeTask3Scene()
 
 std::shared_ptr<rt::Scene> makeMeshScene(std::string fileName)
 {
-  std::shared_ptr<rt::Camera>   camera    = std::make_shared<rt::PerspectiveCamera>();
-  camera->setPosition(rt::Vec3(5.0,5.0,5.0));
-  camera->setFOV(60.0,60.0);
 
   std::shared_ptr<rt::Scene>    scene     = std::make_shared<rt::Scene>();
 
@@ -310,7 +310,7 @@ std::shared_ptr<rt::Scene> makeMeshScene(std::string fileName)
   scene->addLight(light2);
   scene->addLight(light3);
 
-  scene->setCamera(camera);
+  
 
   std::shared_ptr<rt::BVHIndexedTriangleMesh> mesh = std::make_shared<rt::BVHIndexedTriangleMesh>();
   mesh->loadFromOBJ(fileName);
@@ -323,26 +323,72 @@ std::shared_ptr<rt::Scene> makeMeshScene(std::string fileName)
   return scene;
 }
 
+std::shared_ptr<rt::Scene> makeMeshScene(std::string fileName, std::string texFile)
+{
+  
+  std::shared_ptr<rt::Scene>    scene     = std::make_shared<rt::Scene>();
+  
+  std::shared_ptr<rt::Material> material1 = std::make_shared<rt::PhongMaterial>
+  (rt::Vec3(1.0,0.4,0.1),0.8,1000.0);
+  std::shared_ptr<rt::Material> material2 = std::make_shared<rt::PhongMaterial>
+  (rt::Vec3(0.0,0.0,0.0),0.2,1000.0);
+  std::shared_ptr<rt::Material> material3 = std::make_shared<rt::PhongMaterial>
+  (rt::Vec3(0.2,0.3,0.8),0.1,  10.0);
+  std::shared_ptr<rt::Material> material4 = std::make_shared<rt::TextureMaterial>
+  (std::make_shared<rt::Image>(rt::Image(texFile)),0.2,  50.0);
+  std::shared_ptr<rt::Material> material5 = std::make_shared<rt::PhongMaterial>
+  (rt::Vec3(0.5,0.5,0.5),0.1, 100.0);
+  
+  //if your result image is too bright, you can dampen the spectral intensity
+  rt::real intensityFactor=1.0;
+  std::shared_ptr<rt::Light>    light1     = std::make_shared<rt::Light>(
+																		 rt::Vec3(  5.0, 2.0,6.0), intensityFactor*rt::Vec3(200,170,150));
+  std::shared_ptr<rt::Light>    light2     = std::make_shared<rt::Light>(
+																		 rt::Vec3(  5.0,-7.0,3.0), intensityFactor*rt::Vec3(200,170,150));
+  std::shared_ptr<rt::Light>    light3     = std::make_shared<rt::Light>(
+																		 rt::Vec3(-10.0, 4.0,5.0), intensityFactor*rt::Vec3(130,160,200));
+  
+  std::shared_ptr<rt::Plane>    plane     = std::make_shared<rt::Plane>();
+  plane ->setMaterial(material5);
+  
+  scene->addRenderable(plane);
+  
+  scene->addLight(light1);
+  scene->addLight(light2);
+  scene->addLight(light3);
+  
+  
+  
+  std::shared_ptr<rt::BVHIndexedTriangleMesh> mesh = std::make_shared<rt::BVHIndexedTriangleMesh>();
+  mesh->loadFromOBJ(fileName);
+  
+  std::cout<<"Loaded BVHMesh with "<<mesh->triangleIndices().size()/3<<
+  " triangles and "<< mesh->vertexPositions().size()<<" vertices"<<std::endl;
+  mesh->setMaterial(material4);
+  scene->addRenderable(mesh);
+  
+  return scene;
+}
+
 int main()
 {
-  std::shared_ptr<rt::Image> image = std::make_shared<rt::Image>(1080,1080);
+  
 
 //  std::shared_ptr<rt::Scene> scene = makeTask2Scene(); //task2 solution with teapot
-  std::shared_ptr<rt::Scene> scene = makeTask3Scene(); //task3 with four spheres
+  //std::shared_ptr<rt::Scene> scene = makeTask3Scene(); //task3 with four spheres
 
   //Your triangle mesh in OBJ format should be oriented around the origin, with side lengths ~= 2 units
-  //std::shared_ptr<rt::Scene> scene = makeMeshScene("rubberduck.obj");
+  
 
-  std::shared_ptr<rt::Raytracer> raytracer = std::make_shared<rt::Raytracer>();
-  raytracer->setScene(scene);
+  
 
   // Note the fastest way to execute your program using Visual Studio is pressing Ctrl+F5
   // in Release mode. This will detach the rendering process from the debugger.
 
   // The stopwatches commands will measure time between 'tic' and 'toc'. The result is printed to console.
-  util::StopWatch s; s.tic();
-  raytracer->renderToImage(image);
-  s.toc(std::cout);
+  //util::StopWatch s; s.tic();
+  
+  //s.toc(std::cout);
 
   // Save the image in TGA format in a relative folder. Depending on your platform this will differ.
   // If you start your program from Microsoft Visual Studio the image will be written to the folder
@@ -350,7 +396,27 @@ int main()
   // e.g. D:/courses/CG1/raytracer_task3/build64/src/raytracer_dev_task3
   // If you start your program by double-clicking it will be in the same folder as your .exe file
   // e.g. D:/courses/CG1/raytracer_task3/build64/Release
-  image->saveToTGA("./VC-CG_test_raytracer_task3");
+  
+  std::shared_ptr<rt::Image> image = std::make_shared<rt::Image>(720, 720);
+  std::shared_ptr<rt::Raytracer> raytracer = std::make_shared<rt::Raytracer>();
+//  std::shared_ptr<rt::Scene> scene = makeTask3Scene(); //task3 with four spheres
+  //std::shared_ptr<rt::Scene> scene = makeMeshScene("rubberduck.obj");
+  std::shared_ptr<rt::Scene> scene = makeMeshScene("rubberduck.obj", "test.tga");
+  std::shared_ptr<rt::Camera> camera = std::make_shared<rt::PerspectiveCamera>();
+  
+  for (int i = 1; i <= 360; i++) {
+	camera->setPosition(rt::Vec3(sin(i * M_PI / 180) * 5, cos(i * M_PI / 180) * 5, 5));
+	camera->setFOV(60.0,60.0);
+	scene->setCamera(camera);
+	raytracer->setScene(scene);
+	util::StopWatch s; s.tic();
+	raytracer->renderToImage(image);
+	s.toc(std::cout);
+	std::ostringstream oss;
+	oss << "/tmp/frame_" << std::setw(4) << std::setfill('0') << i;
+	
+	image->saveToTGA(oss.str());
+  }
 
   return 0;
 }

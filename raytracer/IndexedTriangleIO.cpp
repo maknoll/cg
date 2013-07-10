@@ -71,7 +71,7 @@ bool IndexedTriangleIO::loadFromOBJ(const std::string &filePath)
     //vertex texture coordinate
     else if (line[0]=='v' && line[1]=='t')
     {
-      if (sscanf(line+3,"%lf %lf %lf\n",&t[0],&t[1],&t[2])!=3)
+      if (sscanf(line+3,"%lf %lf\n",&t[0],&t[1])!=2)
       {
         std::cerr<<"Error: Could not read 'vt' line "<<lineIndex<<std::endl;
         this->clear();
