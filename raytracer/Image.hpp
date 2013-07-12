@@ -14,6 +14,7 @@ class Image
 public:
   Image();
   Image(size_t width, size_t height);
+  Image(std::string filename);
 
   /// Valid values for width and height must be > 0.
   void init(size_t width, size_t height);
@@ -30,6 +31,8 @@ public:
 
   /// RGBA colors components must be in [0,1] range for TGA export. 
   void setPixel(Vec4 &rgba, size_t i, size_t j) { mData[i+mWidth*j]=rgba; }
+  Vec4 getPixel(size_t i, size_t j) const { return mData[i+mWidth*j]; }
+  Vec4 getTexPixel(real	i, real j) const { return getPixel(i * mWidth, j * mHeight); }
 
 private:
   size_t mWidth;

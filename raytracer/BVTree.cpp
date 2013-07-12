@@ -4,32 +4,35 @@ namespace rt
 {
 
 
-const std::vector<int>& BVTree::intersectBoundingBoxes(const Ray &ray, const real maxLambda) const
+const std::vector<int> BVTree::intersectBoundingBoxes(const Ray &ray, const real maxLambda) const
 {
  // int* jobs = (int*)alloca(sizeof(int)*100); //yields 25% better performance
 
-  mTempCandidates.clear();
-  mTempTraversalJobs.push(0);
+  std::vector<int> candidates;
+  std::stack<int> traversalJobs;
+  
+  candidates.clear();
+  traversalJobs.push(0);
 
-  while(!mTempTraversalJobs.empty())
+  while(!traversalJobs.empty())
   {
     //take current job
-    int node = mTempTraversalJobs.top();
-    mTempTraversalJobs.pop();
+    int node = traversalJobs.top();
+    traversalJobs.pop();
 
     //test ray vs. bounding box of node
     if(mNodes[node].bbox.anyIntersection(ray,maxLambda))
     {
       if(mNodes[node].left <= 0 && mNodes[node].right == -1) // is a leaf node
-        mTempCandidates.push_back(-mNodes[node].left);
+        candidates.push_back(-mNodes[node].left);
       else//is not a leaf
       {
-        mTempTraversalJobs.push(mNodes[node].left);
-        mTempTraversalJobs.push(mNodes[node].right);
+        traversalJobs.push(mNodes[node].left);
+        traversalJobs.push(mNodes[node].right);
       }
     }
   }
-  return mTempCandidates;
+  return candidates;
 }
 
 void BVTree::createNodes(const std::vector<Vec3> &vertexPositions,
